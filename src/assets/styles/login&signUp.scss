@@ -1,0 +1,122 @@
+.login,
+.signup {
+  width: 55%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  height: calc(100vh - 100px);
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    // margin-bottom: 10px;
+  }
+  Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    .othersInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      a {
+        color: #1890ff;
+        font-size: 12px;
+        font-weight: 300;
+      }
+      div {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        input {
+          width: max-content;
+        }
+        // gap: 10px;
+        label {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .otherLoginWay {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    span {
+      padding: 0 30px;
+      background: white;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      top: 50%;
+      left: 1%;
+      transform: translateY(-50%, -1%);
+      background-color: black;
+      width: 98%;
+      z-index: -1;
+    }
+  }
+  .thirdPartLogin {
+    display: flex;
+    flex-direction: column;
+    // margin-top: 20px;
+    gap: 20px;
+    button {
+      padding: 8px 20px;
+      justify-content: center;
+      font-size: 12px;
+      background: #f0f0f0;
+    }
+  }
+  p {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    a {
+      color: #1890ff;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .authLayout {
+    .left {
+      h1 {
+        font-size: 34px;
+      }
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .login,
+  .signup {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 460px) {
+  .login,
+  .signup {
+    gap: 10px;
+    width: 100%;
+    h2 {
+      font-size: 18px;
+    }
+    .thirdPartLogin {
+      gap: 10px;
+    }
+  }
+}

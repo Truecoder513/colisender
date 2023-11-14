@@ -1,0 +1,38 @@
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter/Inter-VariableFont_slnt\,wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+img {
+  object-fit: cover;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+input {
+  border: 0;
+  width: 100%;
+  background-color: transparent;
+}
+button {
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+button:disabled {
+  background-color: #cacaca !important;
+  color: #fff !important;
+}
