@@ -3,9 +3,17 @@ import { useState } from "react";
 import "./kits.scss";
 import { ErrorMessage } from "formik";
 import { EyeClose, EyeOpen } from "../assets/icons/icons";
-export const ColisButton = ({ label, ...props }) => {
+export const ColisButton = ({ label, hover = false, ...props }) => {
   return (
-    <button className="baseBtn" {...props}>
+    <button className={`${hover && "announce"} baseBtn`} {...props}>
+      {label}
+    </button>
+  );
+};
+
+export const ColisButtonGrey = ({ label, ...props }) => {
+  return (
+    <button className={`greyBtn`} {...props}>
       {label}
     </button>
   );
@@ -20,8 +28,8 @@ export const LinkButton = ({ label, href, ...props }) => {
   );
 };
 
-export function Img({ alt, image }) {
-  return <img src={`/images/${image}`} alt={alt} />;
+export function Img({ alt, image, ...props }) {
+  return <img src={`/images/${image}`} alt={alt} {...props} />;
 }
 
 export function FormField(item, handleChange, state) {

@@ -1,0 +1,102 @@
+// ---------------------------------  announce components -----------------------------------
+.postAnnounce {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 55px;
+  position: sticky;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 2;
+  top: 0;
+  .right {
+    margin-left: auto;
+  }
+}
+
+// ---------------------------------- users account status --------------------------------------
+.userAccountStatus {
+  background: white;
+  border-radius: 8px;
+  .usersinfos {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+    }
+    p {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+  .signupStatus {
+    background: rgba(0, 19, 88, 0.12);
+    padding: 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .status {
+      label {
+        color: #ff4d4f;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .step {
+        position: relative;
+        height: 8px;
+        border-radius: 100px;
+        background: #d1d1d1;
+        .length {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          background: #ff4d4f;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+  .subscription-status {
+    padding: 20px;
+    border-bottom: 1px solid #c4c4c4;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    svg {
+      font-size: 25px;
+    }
+  }
+  .links {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #c4c4c4;
+      font-weight: 400;
+      color: black;
+    }
+  }
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: 400;
+    width: 100%;
+    svg {
+      font-size: 25px;
+    }
+  }
+}

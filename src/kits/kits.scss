@@ -9,6 +9,20 @@
   padding: 12px 24px;
   width: 100%;
 }
+.greyBtn {
+  border-radius: 4px;
+  background: rgba(34, 70, 151, 0.1);
+  color: #224697;
+  font-style: normal;
+  font-weight: 400;
+  display: block !important;
+  text-align: center;
+  padding: 12px !important;
+  width: 100%;
+}
+.announce {
+  background: #224697 !important;
+}
 .coliForm {
   .formikFormField {
     display: flex;

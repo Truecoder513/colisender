@@ -1,10 +1,11 @@
 import { Form, Formik } from "formik";
 import AuthLayaout from "../../components/layouts/AuthLayaout";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { loginValidationSchema } from "../../utils/validationSchema";
 import { ColisButton, FormField } from "../../kits/kits";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LogosFacebook, LogosGoogleIcon } from "../../assets/icons/icons";
+import AppContext from "../../context/AppContext";
 
 const loginField = [
   {
@@ -20,6 +21,9 @@ const loginField = [
 ];
 
 const Login = () => {
+  const { setAuth } = useContext(AppContext);
+  const navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -29,12 +33,16 @@ const Login = () => {
   const handleData = (e) => {
     const { name, value } = e.target;
     if (name === "remindMe") {
-      return setCredentials((prev) => ({ ...prev, [name]: true }));
+      return setCredentials((prev) => ({
+        ...prev,
+        remindMe: !credentials.remindMe,
+      }));
     }
     setCredentials((prev) => ({ ...prev, [name]: value }));
   };
   const handleFormSubmit = () => {
-    alert("hello");
+    setAuth((prev) => ({ ...prev, isAuth: true }));
+    navigate("/");
   };
   return (
     <AuthLayaout>
@@ -56,7 +64,9 @@ const Login = () => {
                   type="checkbox"
                   name="remindMe"
                   id="remindMe"
+                  onChange={handleData}
                   value={credentials.remindMe}
+                  checked={credentials.remindMe}
                 />
                 <label htmlFor="remindMe">Se souvenir de moi</label>
               </div>
