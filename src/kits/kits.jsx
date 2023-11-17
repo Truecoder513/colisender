@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./kits.scss";
 import { ErrorMessage } from "formik";
 import { EyeClose, EyeOpen } from "../assets/icons/icons";
+import { Link } from "react-router-dom";
 export const ColisButton = ({ label, hover = false, ...props }) => {
   return (
     <button className={`${hover && "announce"} baseBtn`} {...props}>
@@ -11,20 +12,19 @@ export const ColisButton = ({ label, hover = false, ...props }) => {
   );
 };
 
-export const ColisButtonGrey = ({ label, ...props }) => {
+export const ColisButtonGrey = ({ label, href, ...props }) => {
   return (
-    <button className={`greyBtn`} {...props}>
+    <Link className={`greyBtn`} to={href} {...props}>
       {label}
-    </button>
+    </Link>
   );
 };
 
 export const LinkButton = ({ label, href, ...props }) => {
   return (
-    <a href={href} {...props}>
-      {" "}
+    <Link to={href} className="linkButton" {...props}>
       {label}
-    </a>
+    </Link>
   );
 };
 

@@ -9,13 +9,16 @@ const AppRouter = () => {
     <div>
       <Routes>
         {auth.isAuth ? (
-          authedRoutes.map((route) => (
-            <Route
-              path={route.path}
-              element={route.element}
-              key={"page" + route.label}
-            />
-          ))
+          <>
+            {authedRoutes.map((route) => (
+              <Route
+                path={route.path}
+                element={route.element}
+                key={"page" + route.label}
+              />
+            ))}
+            <Route path="/" element={<Navigate to="/apercu" />} />
+          </>
         ) : (
           <>
             {notAuthRoutes.map((route) => (

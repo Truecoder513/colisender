@@ -1,4 +1,5 @@
-import DashboardHome from "../pages/Dashboard/pages/Home/DashboardHome";
+import PagePreview from "../pages/Dashboard/pages/Apercu/PagePreview";
+import FinishedSubsriptions from "../pages/Dashboard/pages/FinishedSubsriptions.jsx/FinishedSubsriptions";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
 
@@ -17,13 +18,13 @@ export const notAuthRoutes = [
 
 export const authedRoutes = [
   {
-    path: "/",
-    label: "Dashboard",
-    element: <DashboardHome />,
-  },
-  {
     path: "/apercu",
     label: "Aperçu",
+    element: <PagePreview />,
+  },
+  {
+    path: "/annonces",
+    label: "Annonces",
     element: "",
   },
   {
@@ -55,5 +56,10 @@ export const authedRoutes = [
     path: "/reports",
     label: "Notes et recommendations",
     element: "",
+  },
+  {
+    path: "/finishSubscriptions",
+    label: "Finaliser Mon inscription",
+    element: <FinishedSubsriptions />,
   },
 ];

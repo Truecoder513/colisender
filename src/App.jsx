@@ -6,9 +6,11 @@ import "./assets/styles/layouts/memberDashboard.scss";
 import "./assets/styles/login&signUp.scss";
 import "./components/header/header.scss";
 import "./assets/styles/dashboard/pagePreview.scss";
+import "./assets/styles/dashboard/finishSubcriptions.scss";
 import AppContext from "./context/AppContext";
 import { useContext } from "react";
 import MemberDashboardLayout from "./components/layouts/MemberDashboardLayout";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { auth } = useContext(AppContext);

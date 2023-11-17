@@ -2,7 +2,6 @@
   border-radius: 4px;
   background: #001358 !important;
   color: #fff;
-  font-style: normal;
   font-weight: 600;
   display: block !important;
   text-align: center;
@@ -22,6 +21,14 @@
 }
 .announce {
   background: #224697 !important;
+}
+.linkButton {
+  border-radius: 4px;
+  background: #001358 !important;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px;
 }
 .coliForm {
   .formikFormField {

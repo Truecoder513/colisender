@@ -43,10 +43,215 @@
       color: #8f8f8f;
       + p {
         font-weight: 400;
+        margin-bottom: 10px;
+      }
+    }
+    .search-result {
+      .s-r-item {
+        border-radius: 8px;
+        border: 1px solid #e3e3e3;
+        cursor: pointer;
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+        }
+        .item-content {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          .top {
+            display: flex;
+            gap: 10px;
+            .left {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding: 0;
+              h3 {
+                font-size: 20px;
+                font-weight: 600;
+                span {
+                  border-radius: 4px;
+                  background: #007bed;
+                  padding: 5px 10px;
+                  color: #fff;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                }
+              }
+            }
+            .right {
+              display: flex;
+              gap: 20px;
+              width: 60%;
+              div {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                color: #8996a7;
+                font-size: 12px;
+                font-weight: 400;
+                gap: 30px;
+                p {
+                  font-size: 14px;
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  svg {
+                    font-size: 20px;
+                    color: #8996a7;
+                  }
+                }
+                span {
+                  cursor: pointer;
+                  border-radius: 4px;
+                  background: #f8f9fd;
+                  padding: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+          .desc {
+            color: #515f72;
+            font-size: 14px;
+            font-weight: 400;
+          }
+          .trip-info {
+            display: flex;
+            // justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            span {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              color: #8996a7;
+              font-size: 12px;
+              font-weight: 400;
+              border-radius: 100px;
+              padding: 10px;
+              background: #f6f9ff;
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
   }
   .right {
     width: 30%;
+  }
+}
+
+@media screen and (max-width: 1098px) {
+  .page-preview {
+    .left {
+      .vip {
+        div {
+          p {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 990px) {
+  .page-preview {
+    flex-direction: column-reverse;
+    .left,
+    .right {
+      width: 100%;
+    }
+    .left {
+      .vip {
+        div {
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .right {
+      display: none;
+    }
+    .search-result {
+      .s-r-item {
+        .item-content {
+          .top {
+            flex-wrap: wrap;
+
+            .right {
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .page-preview {
+    flex-direction: column-reverse;
+    .left,
+    .right {
+      width: 100%;
+    }
+    .left {
+      .vip {
+        flex-direction: column;
+        padding: 20px;
+        div {
+          align-items: center;
+          button {
+            font-size: 14px;
+            padding: 10px;
+          }
+        }
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .page-preview {
+    .left {
+      .search-result {
+        .s-r-item {
+          .item-content {
+            .top {
+              flex-wrap: wrap;
+              .left {
+                h3 {
+                  font-size: 18px;
+                  span {
+                    font-size: 12px;
+                  }
+                }
+              }
+              .right {
+                width: 100%;
+                div {
+                  flex-wrap: wrap;
+                  gap: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

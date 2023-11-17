@@ -42,7 +42,7 @@ const Login = () => {
   };
   const handleFormSubmit = () => {
     setAuth((prev) => ({ ...prev, isAuth: true }));
-    navigate("/");
+    navigate("/apercu");
   };
   return (
     <AuthLayaout>

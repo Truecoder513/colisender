@@ -1,12 +1,13 @@
 import { SearchIcons } from "../../../../assets/icons/icons";
-import PostAnnounce from "../../../../components/globalsComponents/PostAnnounce";
+import MemberDbTopBar from "../../../../components/globalsComponents/MemberDbTopBar";
 import UsersAccountStatus from "../../../../components/globalsComponents/UsersAccountStatus";
 import { Img } from "../../../../kits/kits";
+import AnnounceCard from "./components/AnnounceCard";
 
-const DashboardHome = () => {
+const PagePreview = () => {
   return (
     <div>
-      <PostAnnounce button />
+      <MemberDbTopBar button />
       <div className="content-padding">
         <div className="page-preview">
           <div className="left">
@@ -22,6 +23,7 @@ const DashboardHome = () => {
               <input type="text" placeholder="Recherche" />
             </div>
             <p>120 résultats issue de votre recherche</p>
+            <AnnounceCard />
           </div>
           <div className="right">
             <UsersAccountStatus />
@@ -32,4 +34,4 @@ const DashboardHome = () => {
   );
 };
 
-export default DashboardHome;
+export default PagePreview;

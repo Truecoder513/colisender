@@ -41,3 +41,33 @@ button:disabled {
 .content-padding {
   padding: 16px 35px;
 }
+
+.toast-container {
+  width: 40vw;
+  margin-right: 30px;
+  left: -18vw;
+
+  p {
+    font-size: 13px;
+  }
+  .btn-act {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      margin-left: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .toast-container {
+    width: initial;
+    left: ç;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content-padding {
+    padding: 16px;
+  }
+}

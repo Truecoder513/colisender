@@ -11,3 +11,9 @@
     overflow: auto;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .pages-container {
+    padding: 10px;
+  }
+}

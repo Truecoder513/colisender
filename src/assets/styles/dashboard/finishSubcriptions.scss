@@ -1,0 +1,50 @@
+.finishSubcription {
+  .setAccountInfo {
+    background: white;
+    padding: 60px 36px;
+    border-radius: 8px;
+    form {
+      width: 50%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      label {
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px;
+        border: 1px solid #ebebeb;
+        align-items: center;
+        cursor: pointer;
+        input {
+          width: max-content;
+        }
+        div {
+          display: flex;
+          gap: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1078px) {
+  .finishSubcription {
+    .setAccountInfo {
+      form {
+        width: 80%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 668px) {
+  .finishSubcription {
+    .setAccountInfo {
+      form {
+        width: 100%;
+      }
+    }
+  }
+}
