@@ -37,3 +37,5 @@ export const contactValidationSchema = () => {
     links: Yup.string().required("Veuillez remplir ce champ."),
   });
 };
+
+export const searchValidationSchema = () => {};

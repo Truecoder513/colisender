@@ -47,6 +47,8 @@ const PagePreview = () => {
     destination: "",
     budjet: "",
   });
+
+  const [showSearchParams, setSSP] = useState(false);
   const handleData = (e) => {
     try {
       const { name, value } = e.target;
@@ -72,23 +74,24 @@ const PagePreview = () => {
               </div>
               <Img image={"Vip.png"} alt={""} />
             </div>
-            <div className="search">
-              <div className="top">
+            <div className={`search ${showSearchParams ? "showParams" : ""}`}>
+              <div className="top" onClick={() => setSSP(!showSearchParams)}>
                 <SearchIcons />
                 Rechercher
               </div>
 
-              <Formik>
+              <Formik initialValues={searchParams} enableReinitialize>
                 <Form>
-                  {fields.map((field) =>
-                    FormField(field, handleData, searchParams)
-                  )}
+                  <div className="top">
+                    {fields.map((field) =>
+                      FormField(field, handleData, searchParams)
+                    )}
+                  </div>
+                  <div className="bottom">
+                    <ColisButton type="submit" label={"Valider la recherche"} />
+                  </div>
                 </Form>
               </Formik>
-
-              <div className="bottom">
-                <ColisButton label={"Valider la recherche"} />
-              </div>
             </div>
             <p>120 résultats issue de votre recherche</p>
             <AnnounceCard />
