@@ -59,7 +59,6 @@ export function FormField(item, handleChange, state, border = false) {
             <div className="formikFormField2">
               <Select
                 defaultValue={state[item.name]}
-                isMulti
                 name={item.name}
                 onChange={(e) => handleChange(e)}
                 options={item.options ? item.options : []}
