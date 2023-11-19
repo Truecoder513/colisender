@@ -49,6 +49,7 @@ const UsersAccountStatus = () => {
       <button
         onClick={() => {
           setAuth((prev) => ({ ...prev, isAuth: false }));
+          localStorage.removeItem("coliToken");
           navigate("/");
         }}
       >

@@ -1,5 +1,6 @@
 import PagePreview from "../pages/Dashboard/pages/Apercu/PagePreview";
-import FinishedSubsriptions from "../pages/Dashboard/pages/FinishedSubsriptions.jsx/FinishedSubsriptions";
+import FinishedSubsriptions from "../pages/Dashboard/pages/FInishedSubsriptions/FInishedSubsriptions";
+
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
 

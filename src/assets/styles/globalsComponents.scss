@@ -171,15 +171,18 @@
   }
 }
 
+// ----------------------------------------- form steppers ----------------------------------------
+
 .steppers {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   position: relative;
+  margin-bottom: 30px;
   .length,
   .currentLength,
-  .currentLengt2 {
+  .currentLength2 {
     position: absolute;
     height: 2px;
     left: 0;
@@ -191,13 +194,15 @@
     background: rgba(0, 0, 0, 0.15);
   }
   .currentLength,
-  .currentLengt2 {
+  .currentLength2 {
     background-color: #1890ff;
     transition: 0.3s;
   }
+
   .currentLength2 {
     display: none;
   }
+
   .last {
     div {
       p:nth-child(1) {
@@ -259,18 +264,66 @@
     }
   }
 }
+.step-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px;
+  button {
+    padding: 12px 50px;
+    font-weight: 400;
+    border-radius: 4px;
+  }
+  button:nth-child(1) {
+    color: #606060;
+    background: #f3f2f8;
+  }
+  button:nth-child(2) {
+    color: white;
+    background: #001358;
+  }
+}
+
+// -------------------------------------- stripe checkout -------------------------------------------
+
+.stripeCheckout {
+  padding: 30px 100px;
+  h4 {
+    font-weight: 400;
+    font-size: 24px;
+  }
+  .payementInfo {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    p {
+      color: #6f6f6f;
+      font-size: 28px;
+      font-weight: 400;
+    }
+    h3 {
+      color: #000;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+}
 
 @media screen and (max-width: 968px) {
   .steppers {
     .length,
-    .currentLengt2 {
+    .currentLength2 {
       position: absolute;
       top: 50%;
     }
     .currentLength {
       display: none;
     }
-    .currentLengt2 {
+    .currentLength2 {
       display: block;
     }
     .step {

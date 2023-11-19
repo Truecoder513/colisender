@@ -10,7 +10,7 @@ const Steppers = ({ currentStep, steps }) => {
         style={{ width: `${((currentStep - 1) * 100) / steps.length + 5}%` }}
       ></span>
       <span
-        className="currentLengt2"
+        className="currentLength2"
         style={{ width: `${(currentStep * 100) / steps.length}%` }}
       ></span>
 

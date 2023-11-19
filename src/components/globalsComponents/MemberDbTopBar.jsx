@@ -1,5 +1,7 @@
 import { toast } from "react-toastify";
 import { ColisButton, LinkButton } from "../../kits/kits";
+import { useContext } from "react";
+import AppContext from "../../context/AppContext";
 
 /* eslint-disable react/prop-types */
 
@@ -21,17 +23,21 @@ const CantPostAnnonnce = () => {
 };
 
 const MemberDbTopBar = ({ left = "", button = false }) => {
+  const { auth } = useContext(AppContext);
+
   const handlePost = () => {
-    toast(<CantPostAnnonnce />, {
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      position: "top-right",
-      className: "toast-container",
-    });
+    !auth.verified
+      ? toast(<CantPostAnnonnce />, {
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          position: "top-right",
+          className: "toast-container",
+        })
+      : toast("please wait...");
   };
   return (
     <div className="MemberDbTopBar">

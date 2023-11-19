@@ -42,6 +42,7 @@ const Login = () => {
   };
   const handleFormSubmit = () => {
     setAuth((prev) => ({ ...prev, isAuth: true }));
+    localStorage.setItem("coliToken", "hello");
     navigate("/apercu");
   };
   return (

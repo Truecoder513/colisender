@@ -1,12 +1,17 @@
 import { useState } from "react";
-import Steppers from "../../../../../components/globalsComponents/Steppers";
 
-const ParticularSteppers = () => {
+import Steppers from "../../../../../components/globalsComponents/Steppers";
+import StripeCheckout from "../../../../../components/globalsComponents/StripeCheckout";
+import Contact from "./Contact";
+import Localisation from "./Localisation";
+import DetailsEnteprise from "./DetailsEnteprise";
+
+const EnterpriseSteppers = () => {
   const [currentStep, setCurrentsStep] = useState(1);
 
   const handleStep = (type) => {
     if (type === "next") {
-      if (currentStep < 5) {
+      if (currentStep < 4) {
         setCurrentsStep(currentStep + 1);
       }
     } else if (type === "prev") {
@@ -15,22 +20,19 @@ const ParticularSteppers = () => {
       }
     }
   };
+
   const steps = [
     {
       stepName: "Détail",
-      stepInfo: "qui êtes vous ?",
+      stepInfo: "Information de l’entreprise",
     },
     {
       stepName: "Adresse",
-      stepInfo: "Où êtes vous localisé?",
+      stepInfo: "Localisation",
     },
     {
       stepName: "Contact",
       stepInfo: "Téléphone et email",
-    },
-    {
-      stepName: "Profile",
-      stepInfo: "Photo de profile et selfie",
     },
     {
       stepName: "Validation",
@@ -40,7 +42,11 @@ const ParticularSteppers = () => {
   return (
     <div>
       <Steppers currentStep={currentStep} steps={steps} />
-      <div>
+      {currentStep === 1 && <DetailsEnteprise />}
+      {currentStep === 2 && <Localisation label={"Localisation"} />}
+      {currentStep === 3 && <Contact />}
+      {currentStep === steps.length && <StripeCheckout />}
+      <div className="step-button">
         <button onClick={() => handleStep("prev")}>Précédent</button>
         <button onClick={() => handleStep("next")}>Suivant</button>
       </div>
@@ -48,4 +54,4 @@ const ParticularSteppers = () => {
   );
 };
 
-export default ParticularSteppers;
+export default EnterpriseSteppers;

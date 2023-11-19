@@ -28,6 +28,17 @@
       }
     }
   }
+  .accountInfoStep {
+    padding: 30px 100px;
+    h4 {
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    form {
+      gap: 20px;
+    }
+  }
 }
 
 @media screen and (max-width: 1078px) {
@@ -36,6 +47,16 @@
       form {
         width: 80%;
       }
+    }
+  }
+}
+@media screen and (max-width: 978px) {
+  .finishSubcription {
+    .setAccountInfo {
+      padding: 20px;
+    }
+    .accountInfoStep {
+      padding: 20px;
     }
   }
 }
