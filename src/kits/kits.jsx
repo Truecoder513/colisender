@@ -82,11 +82,32 @@ export function FormField(item, handleChange, state, border = false) {
           </span>
         </>
       ) : item.type === "file" ? (
-        <div className={`formikInputfield ${border ? "border" : ""}`}>
-          <p>{item.placeholder}</p>
-          <input type="file" name={item.name} id={item.name} />
-          <UploadButton id={item.name} />
-        </div>
+        <>
+          <div className={`formikInputfield ${border ? "border" : ""}`}>
+            <p>{item.placeholder}</p>
+            <input type="file" name={item.name} id={item.name} />
+            <UploadButton id={item.name} />
+          </div>
+          <span className="input-errors">
+            <ErrorMessage name={item.name} />
+          </span>
+        </>
+      ) : item.type === "date" ? (
+        <>
+          <div className={`formikFormField`}>
+            <input
+              type={state[item.name] ? item.type : "text"}
+              onFocus={(e) => (e.target.type = "date")}
+              name={item.name}
+              id={item.name}
+              onChange={(e) => handleChange(e)}
+              placeholder={item.placeholder}
+            />
+          </div>
+          <span className="input-errors">
+            <ErrorMessage name={item.name} />
+          </span>
+        </>
       ) : (
         <>
           <div

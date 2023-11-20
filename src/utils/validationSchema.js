@@ -38,4 +38,8 @@ export const contactValidationSchema = () => {
   });
 };
 
-export const searchValidationSchema = () => {};
+export const searchValidationSchema = () => {
+  return Yup.object({
+    transportorType: Yup.object().required("Veuillez remplir ce champ."),
+  });
+};

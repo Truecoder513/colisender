@@ -41,6 +41,11 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    .statusComplete {
+      label {
+        color: #74ab00 !important;
+      }
+    }
     .status {
       label {
         color: #ff4d4f;
@@ -59,6 +64,9 @@
           height: 100%;
           background: #ff4d4f;
           border-radius: 100px;
+        }
+        .complete {
+          background: #001358;
         }
       }
     }
@@ -313,7 +321,63 @@
   }
 }
 
-@media screen and (max-width: 968px) {
+// ------------------------------------------- modal  -----------------------------------------
+
+.modal {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(34, 70, 151, 0.5);
+  animation: entrance 0.3s;
+  z-index: 1000;
+  display: flex;
+  .modalContainer,
+  .largeModal {
+    margin-left: auto;
+    background-color: white;
+    width: 50%;
+    height: 100vh;
+    padding: 20px;
+    overflow: scroll;
+    .close {
+      display: flex;
+      span {
+        font-size: 30px;
+        margin-left: auto;
+        cursor: pointer;
+        color: #000;
+      }
+    }
+  }
+  .largeModal {
+    width: 95%;
+    padding: 0;
+  }
+}
+
+@keyframes entrance {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  // ------------------------------------------- modal  -----------------------------------------
+  .modal {
+    .modalContainer {
+      width: 70%;
+    }
+    .largeModal {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 468px) {
+  // ----------------------------------------- form steppers ----------------------------------------
   .steppers {
     .length,
     .currentLength2 {
@@ -335,6 +399,12 @@
           background-color: transparent;
         }
       }
+    }
+  }
+  // ------------------------------------------- modal  -----------------------------------------
+  .modal {
+    .modalContainer {
+      width: 100%;
     }
   }
 }

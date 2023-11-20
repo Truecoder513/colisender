@@ -1,18 +1,28 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Steppers from "../../../../../components/globalsComponents/Steppers";
 import StripeCheckout from "../../../../../components/globalsComponents/StripeCheckout";
 import Contact from "./Contact";
 import Localisation from "./Localisation";
 import DetailsParticular from "./DetailsParticular";
 import Profile from "./Profile";
+import { toast } from "react-toastify";
+import AppContext from "../../../../../context/AppContext";
+import { useNavigate } from "react-router";
 
 const ParticularSteppers = () => {
   const [currentStep, setCurrentsStep] = useState(1);
-
+  const { setAuth } = useContext(AppContext);
+  const navigate = useNavigate();
   const handleStep = (type) => {
     if (type === "next") {
       if (currentStep < 5) {
         setCurrentsStep(currentStep + 1);
+      } else {
+        toast(
+          "Bravo!!!, votre compte est vérifié, un de nos modérateur va validé votre compte dans les 24h qui suivent"
+        );
+        setAuth((prev) => ({ ...prev, verified: true }));
+        navigate("/apercu");
       }
     } else if (type === "prev") {
       if (currentStep > 1) {

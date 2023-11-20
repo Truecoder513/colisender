@@ -292,7 +292,7 @@ export function LengthIcon(props) {
     >
       <path
         fill="none"
-        stroke="#888888"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
@@ -312,7 +312,7 @@ export function UilPlaneFly(props) {
       {...props}
     >
       <path
-        fill="#888888"
+        fill="currentColor"
         d="M23 9.32a1.06 1.06 0 0 0-.1-.76a4.93 4.93 0 0 0-6.75-1.8L14 8L9 5.65a1 1 0 0 0-.92 0l-3 1.73a1 1 0 0 0-.5.84a1 1 0 0 0 .46.87l3.3 2.08l-1.74 1l-4.78.58a1 1 0 0 0-.53 1.75l3.54 3.06a3 3 0 0 0 3.55.44L22.5 9.93a1 1 0 0 0 .5-.61Zm-15.53 7a1 1 0 0 1-1.2-.18l-1.9-1.63l2.73-.33a1 1 0 0 0 .38-.13l3.36-1.93a1 1 0 0 0 .5-.85a1 1 0 0 0-.47-.86l-3.3-2.09l1.1-.63l5 2.32a1 1 0 0 0 .92 0l2.56-1.48a3 3 0 0 1 3.36.29Z"
       ></path>
     </svg>
@@ -328,7 +328,7 @@ export function MinibusIcon(props) {
       viewBox="0 0 32 32"
       {...props}
     >
-      <g fill="#888888">
+      <g fill="currentColor">
         <path d="M11 14a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-3Z"></path>
         <path d="M6.6 11.2A3 3 0 0 1 9 10h19a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-1.337a3.5 3.5 0 0 1-6.326 0h-8.674a3.5 3.5 0 0 1-6.326 0H4a3 3 0 0 1-3-3v-4.667a5 5 0 0 1 1-3L6.6 11.2ZM9 12a1 1 0 0 0-.8.4l-.45.6H8a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4l-.4.533c-.11.148-.206.304-.287.467H29v-1H19a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h10a1 1 0 0 0-1-1H9ZM3 25a1 1 0 0 0 1 1h1.035a3.5 3.5 0 0 1 6.93 0h8.07a3.501 3.501 0 0 1 6.93 0H28a1 1 0 0 0 1-1v-1a1 1 0 1 1 0-2v-1H3v4Zm7 1.5a1.5 1.5 0 1 0-3 0a1.5 1.5 0 0 0 3 0Zm15 0a1.5 1.5 0 1 0-3 0a1.5 1.5 0 0 0 3 0Z"></path>
       </g>
@@ -346,7 +346,7 @@ export function IcRoundTrain(props) {
       {...props}
     >
       <path
-        fill="#888888"
+        fill="currentColor"
         d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19l-1.15 1.15a.5.5 0 0 0 .36.85H7.8c.13 0 .26-.05.35-.15L10 19h4l1.85 1.85c.09.09.22.15.35.15h1.09c.45 0 .67-.54.35-.85L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm5.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5s1.5.67 1.5 1.5s-.67 1.5-1.5 1.5zm1.5-7h-5V6h5v4z"
       ></path>
     </svg>
@@ -363,7 +363,7 @@ export function RiShareLine(props) {
       {...props}
     >
       <path
-        fill="#888888"
+        fill="currentColor"
         d="m13.12 17.023l-4.199-2.29a4 4 0 1 1 0-5.465l4.2-2.29a4 4 0 1 1 .958 1.755l-4.2 2.29a4.008 4.008 0 0 1 0 1.954l4.2 2.29a4 4 0 1 1-.959 1.755ZM6 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm11-6a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm0 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4Z"
       ></path>
     </svg>
@@ -380,7 +380,7 @@ export function IconProfileFill(props) {
       {...props}
     >
       <path
-        fill="#888888"
+        fill="currentColor"
         fillRule="evenodd"
         d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0Zm0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5H8Z"
         clipRule="evenodd"
@@ -399,7 +399,7 @@ export function PhDotOutlineFill(props) {
       {...props}
     >
       <path
-        fill="#888888"
+        fill="#currentColor"
         d="M156 128a28 28 0 1 1-28-28a28 28 0 0 1 28 28Z"
       ></path>
     </svg>
@@ -572,8 +572,29 @@ export function UploadIcon(props) {
       {...props}
     >
       <path
-        fill="#888888"
+        fill="currentColor"
         d="M6 20q-.825 0-1.413-.588T4 18v-2q0-.425.288-.713T5 15q.425 0 .713.288T6 16v2h12v-2q0-.425.288-.713T19 15q.425 0 .713.288T20 16v2q0 .825-.588 1.413T18 20H6Zm5-12.15L9.125 9.725q-.3.3-.713.288T7.7 9.7q-.275-.3-.288-.7t.288-.7l3.6-3.6q.15-.15.325-.212T12 4.425q.2 0 .375.063t.325.212l3.6 3.6q.3.3.288.7t-.288.7q-.3.3-.713.313t-.712-.288L13 7.85V15q0 .425-.288.713T12 16q-.425 0-.713-.288T11 15V7.85Z"
+      ></path>
+    </svg>
+  );
+}
+
+export function CloseIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 512 512"
+      {...props}
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
+        d="M368 368L144 144m224 0L144 368"
       ></path>
     </svg>
   );

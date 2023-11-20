@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import Steppers from "../../../../../components/globalsComponents/Steppers";
 import StripeCheckout from "../../../../../components/globalsComponents/StripeCheckout";
 import Contact from "./Contact";
 import Localisation from "./Localisation";
 import DetailsEnteprise from "./DetailsEnteprise";
+import { toast } from "react-toastify";
+import AppContext from "../../../../../context/AppContext";
+import { useNavigate } from "react-router";
 
 const EnterpriseSteppers = () => {
   const [currentStep, setCurrentsStep] = useState(1);
+  const { setAuth } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const handleStep = (type) => {
     if (type === "next") {
       if (currentStep < 4) {
         setCurrentsStep(currentStep + 1);
+      } else {
+        toast(
+          "Bravo!!!, votre compte est vérifié, un de nos modérateur va validé votre compte dans les 24h qui suivent"
+        );
+        setAuth((prev) => ({ ...prev, verified: true }));
+        localStorage.setItem("colisAccountActive", "yes");
+        navigate("/apercu");
       }
     } else if (type === "prev") {
       if (currentStep > 1) {

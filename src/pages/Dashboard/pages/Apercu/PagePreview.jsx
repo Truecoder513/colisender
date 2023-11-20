@@ -5,6 +5,7 @@ import UsersAccountStatus from "../../../../components/globalsComponents/UsersAc
 import { ColisButton, FormField, Img } from "../../../../kits/kits";
 import AnnounceCard from "./components/AnnounceCard";
 import { Form, Formik } from "formik";
+import { searchValidationSchema } from "../../../../utils/validationSchema";
 
 const fields = [
   {
@@ -80,7 +81,11 @@ const PagePreview = () => {
                 Rechercher
               </div>
 
-              <Formik initialValues={searchParams} enableReinitialize>
+              <Formik
+                initialValues={searchParams}
+                enableReinitialize
+                validationSchema={searchValidationSchema}
+              >
                 <Form>
                   <div className="top">
                     {fields.map((field) =>

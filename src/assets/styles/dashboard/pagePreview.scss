@@ -188,6 +188,40 @@
   }
 }
 
+.setAnnonceInfo {
+  background: white;
+  padding: 60px 36px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  form {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    label {
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      border: 1px solid #ebebeb;
+      align-items: center;
+      cursor: pointer;
+      input {
+        width: max-content;
+      }
+      div {
+        display: flex;
+        gap: 20px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1098px) {
   .page-preview {
     .left {

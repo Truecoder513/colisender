@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AppContextProvider>
-        <ToastContainer style={{ zIndex: 100000 }} />
+        <ToastContainer className="toast-container" />
         <App />
       </AppContextProvider>
     </BrowserRouter>

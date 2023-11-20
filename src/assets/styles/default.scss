@@ -43,9 +43,9 @@ button:disabled {
 }
 
 .toast-container {
-  width: 40vw;
-  margin-right: 30px;
-  left: -18vw;
+  z-index: 100000;
+  width: max-content !important;
+  right: 0;
 
   p {
     font-size: 13px;
@@ -62,8 +62,7 @@ button:disabled {
 
 @media screen and (max-width: 968px) {
   .toast-container {
-    width: initial;
-    left: ç;
+    width: initial !important;
   }
 }
 @media screen and (max-width: 768px) {

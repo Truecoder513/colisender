@@ -6,7 +6,7 @@ import { useContext } from "react";
 import AppContext from "../../context/AppContext";
 
 const UsersAccountStatus = () => {
-  const { setAuth } = useContext(AppContext);
+  const { setAuth, auth } = useContext(AppContext);
   const navigate = useNavigate();
   return (
     <div className="userAccountStatus">
@@ -15,16 +15,21 @@ const UsersAccountStatus = () => {
         <p>Alex Jones</p>
       </div>
       <div className="signupStatus">
-        <div className="status">
-          <label>50% effectué</label>
+        <div className={`status ${!auth.verified ? "" : "statusComplete"}`}>
+          <label>{!auth.verified ? "50%" : "100%"} effectué</label>
           <div className="step">
-            <span className="length" style={{ width: "50%" }}></span>
+            <span
+              className={`length ${!auth.verified ? "" : "complete"}`}
+              style={{ width: `${!auth.verified ? "50%" : "100%"}` }}
+            ></span>
           </div>
         </div>
-        <ColisButtonGrey
-          label={"Finaliser mon inscription"}
-          href={"/finishSubscriptions"}
-        />
+        {!auth.verified && (
+          <ColisButtonGrey
+            label={"Finaliser mon inscription"}
+            href={"/finishSubscriptions"}
+          />
+        )}
       </div>
       <div className="subscription-status">
         <CloseCircled /> <p>Aucun abonnement en cours pour le moment</p>
