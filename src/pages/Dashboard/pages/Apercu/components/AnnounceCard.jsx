@@ -19,6 +19,7 @@ import AppContext from "../../../../../context/AppContext";
 import AnnonceDetails from "./AnnonceDetails";
 import { CantPostAnnonnce } from "../../../../../components/toastMessages";
 import ShareContainer from "../../../../../components/globalsComponents/ShareContainer";
+import { toast } from "react-toastify";
 
 const AnnounceCard = () => {
   const { handeShowModal, auth } = useContext(AppContext);
@@ -54,11 +55,9 @@ const AnnounceCard = () => {
       <div
         className="search-result"
         onClick={() => {
-          !auth.verified ? (
-            <CantPostAnnonnce />
-          ) : (
-            handeShowModal("show", <AnnonceDetails />, true)
-          );
+          !auth.verified
+            ? toast(<CantPostAnnonnce />, { hideProgressBar: true })
+            : handeShowModal("show", <AnnonceDetails />, true);
         }}
       >
         <div className="s-r-item">
