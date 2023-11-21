@@ -15,8 +15,13 @@ export const AppContextProvider = ({ children }) => {
     modalContent: null,
     large: false,
   });
+  const [modal2, setModalData2] = useState({
+    show: false,
+    modalContent: null,
+    large: false,
+  });
 
-  const handeShowModal = (show, content = null, large = false) => {
+  const handleShowModal = (show, content = null, large = false) => {
     if (show === "show") {
       setModalData({
         show: true,
@@ -32,11 +37,29 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  const handleShowModal2 = (show, content = null, large = false) => {
+    if (show === "show") {
+      setModalData2({
+        show: true,
+        modalContent: content,
+        large: large,
+      });
+    } else {
+      setModalData2({
+        show: false,
+        modalContent: null,
+        large: false,
+      });
+    }
+  };
+
   const contexValue = {
     auth,
     setAuth,
-    handeShowModal,
+    handleShowModal,
     modal,
+    modal2,
+    handleShowModal2,
   };
   return (
     <AppContext.Provider value={contexValue}>{children}</AppContext.Provider>

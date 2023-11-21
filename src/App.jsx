@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import Modal from "./components/globalsComponents/Modal";
+import ModalContainer from "./components/globalsComponents/Modal";
 
 const stripePromise = loadStripe(
   "pk_test_51ODUHMA7rHPb5tvlx3xUIz8ofGVKfPbN8vshBaXWUG242z9M8Gy8dPZSFKAT9V1aXRqGftgRLT2OZ2nQr0dldS7p00nKDsT1iK"
@@ -29,8 +29,8 @@ function App() {
   // };
   return (
     <>
+      <ModalContainer />
       <Elements stripe={stripePromise}>
-        <Modal />
         {auth.isAuth ? (
           <MemberDashboardLayout>
             <AppRouter />

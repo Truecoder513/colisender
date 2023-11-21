@@ -1,7 +1,10 @@
 .annoncesInfos {
+  .colisAnnonce {
+    top: 48px !important;
+  }
   .annoncerStats {
     margin-top: 20px;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #d9d9d9;
@@ -91,10 +94,15 @@
       }
     }
     .left {
-      .colisPreviews {
+      .colisPreviews,
+      .annoncer-paper {
         margin-top: 20px;
         h5 {
           margin: 20px 0;
+        }
+        img {
+          width: 100%;
+          height: 300px;
         }
         div {
           display: flex;
@@ -127,6 +135,23 @@
   }
 }
 
+.annonceDetails-form {
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    background: #224697;
+    span {
+      svg {
+        font-size: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 968px) {
   .annoncesInfos {
     .annoncerStats {
@@ -146,7 +171,8 @@
       margin-top: initial;
       margin-left: auto;
     }
-    .colisInfo {
+    .colisInfo,
+    .annoncer-paper {
       flex-direction: column;
       &::after {
         background: transparent;

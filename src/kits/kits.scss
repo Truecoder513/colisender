@@ -32,12 +32,15 @@
   padding: 12px;
 }
 .coliForm {
-  .formikFormField {
+  .formikFormField3,
+  .formikFormField,
+  .formikFormField2 {
     display: flex;
     align-items: center;
-    border-radius: 2px;
     border: 1px solid #d9d9d9;
     padding: 8px 12px;
+  }
+  .formikFormField {
     span {
       cursor: pointer;
     }
@@ -60,9 +63,6 @@
     }
   }
   .formikFormField2 {
-    display: flex;
-    align-items: center;
-    border: 1px solid #d9d9d9;
     .css-b62m3t-container {
       width: 100%;
       padding: 0px;
@@ -73,6 +73,13 @@
           border-color: transparent;
         }
       }
+    }
+  }
+  .formikFormField3 {
+    justify-content: space-between;
+    gap: 20px;
+    div {
+      width: 100%;
     }
   }
   .input-errors {
@@ -99,7 +106,7 @@
   }
   .border {
     border: 1px dashed #5a5f70;
-    padding: 10px;
+    padding: 6px;
   }
 }
 

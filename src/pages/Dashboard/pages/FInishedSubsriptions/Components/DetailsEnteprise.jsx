@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { FormField } from "../../../../../kits/kits";
+import { handleFormData } from "../../../../../utils/helpers";
 
 const fields = [
   {
@@ -33,10 +34,6 @@ const DetailsEnteprise = () => {
     managerProfile: "",
   });
 
-  const handleData = (e) => {
-    const { name, value } = e.target;
-    setED((prev) => ({ ...prev, [name]: value }));
-  };
   return (
     <div className="accountInfoStep">
       <h4>Information sur l’entreprise</h4>
@@ -47,7 +44,11 @@ const DetailsEnteprise = () => {
       >
         <Form style={{ width: "100%" }}>
           {fields.map((field) =>
-            FormField(field, handleData, enterpriseDetails)
+            FormField(
+              field,
+              (e) => handleFormData(e, setED, field.name),
+              enterpriseDetails
+            )
           )}
           {/* <button type="submit">sdsdsds</button>  */}
         </Form>

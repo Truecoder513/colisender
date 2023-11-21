@@ -6,6 +6,7 @@ import { LogosFacebook, LogosGoogleIcon } from "../../assets/icons/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { signUpValidationSchema } from "../../utils/validationSchema";
+import { handleFormData } from "../../utils/helpers";
 
 const signUpField = [
   {
@@ -43,10 +44,7 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
-  const handleData = (e) => {
-    const { name, value } = e.target;
-    setCredentials((prev) => ({ ...prev, [name]: value }));
-  };
+
   const handleFormSubmit = () => {
     alert("hello");
   };
@@ -62,7 +60,12 @@ const SignUp = () => {
         >
           <Form>
             {signUpField.map((field) =>
-              FormField(field, handleData, credentials)
+              FormField(
+                field,
+                (e) => handleFormData(e, setCredentials, field.name),
+
+                credentials
+              )
             )}
             <ColisButton type="submit" label={"Créer mon compte"} />
           </Form>

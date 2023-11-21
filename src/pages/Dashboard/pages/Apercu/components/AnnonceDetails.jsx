@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import {
@@ -16,8 +17,8 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
-const AnnonceDetails = () => {
-  const { handeShowModal } = useContext(AppContext);
+const AnnonceDetails = ({ announce }) => {
+  const { handleShowModal } = useContext(AppContext);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handlePopover = (event) => {
@@ -58,23 +59,28 @@ const AnnonceDetails = () => {
         left={
           <button
             onClick={() => {
-              handeShowModal("close");
+              handleShowModal("close");
             }}
           >
             <ArrowBackRounded />
             Détail de l’annonce
           </button>
         }
-        button
+        button={true}
+        type={announce.type === "transport" ? "porteur" : "devisColis"}
       />
       <div className="annoncesInfos">
-        <div className="annoncerStats">
+        <div
+          className={`annoncerStats ${
+            announce.type === "kilos" ? "colisAnnonce" : ""
+          }`}
+        >
           <div className="left">
             <Img image={"user.jpeg"} alt={"user.jpg"} />
             <div className="ac-infos">
               <div>
-                <p>J’ai besoins d’un porteur pour mon colis</p>
-                <p>etoles</p>
+                <p>{announce.title}</p>
+                <p>{announce.stars}</p>
               </div>
               <div>
                 <span>New York; Manhattan</span>
@@ -97,32 +103,33 @@ const AnnonceDetails = () => {
         <div className="colisInfo">
           <div className="left">
             <h5>A Propos de l’epédition</h5>
-            <p>
-              Jai un colis de 150Kg que je veux transporter de Paris à Bordeau
-              le samedi 15 juillet 2023 et je recherche un porteur qui fait le
-              trajet Paris Bordeau pour expédier mon colis. Jai un colis de
-              150Kg que je veux transporter de Paris à Bordeau le samedi 15
-              juillet 2023 et je recherche un porteur qui fait le trajet Paris
-              Bordeau pour expédier mon colis. Jai un colis de 150Kg que je veux
-              transporter de Paris à Bordeau le samedi 15 juillet 2023 et je
-              recherche un porteur qui fait le trajet Paris Bordeau pour
-              expédier mon colis. Jai un colis de 150Kg que je veux transporter.
-            </p>
-
-            <div className="colisPreviews">
-              <h5>Colis</h5>
-              <div className="imgs">
-                <Img image={"user.jpeg"} alt={"user.jpg"} />
-                <Img image={"user.jpeg"} alt={"user.jpg"} />
-                <Img image={"user.jpeg"} alt={"user.jpg"} />
+            <p>{announce.description}</p>
+            {announce.type === "transport" && (
+              <div className="colisPreviews">
+                <h5>Colis</h5>
+                <div className="imgs">
+                  <Img image={"user.jpeg"} alt={"user.jpg"} />
+                  <Img image={"user.jpeg"} alt={"user.jpg"} />
+                  <Img image={"user.jpeg"} alt={"user.jpg"} />
+                </div>
+                <h5>Vidéo</h5>
+                <video width="100%" height="240" controls>
+                  <source src="/images/video.mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
-              <h5>Vidéo</h5>
-              <video width="100%" height="240" controls>
-                <source src="/images/video.mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+            )}
+
+            {announce.type === "kilos" && (
+              <div className="annoncer-paper">
+                <h5>Passeport</h5>
+                <Img image={"passeport.png"} alt={"passeport"} />
+                <h5>Billet d'avion</h5>
+                <Img image={"billet.png"} alt={"billet.jpg"} />
+              </div>
+            )}
           </div>
+
           <div className="right">
             <Accordion
               expanded={expanded === "date"}

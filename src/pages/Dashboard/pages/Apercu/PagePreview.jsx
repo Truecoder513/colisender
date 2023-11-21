@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { SearchIcons } from "../../../../assets/icons/icons";
 import MemberDbTopBar from "../../../../components/globalsComponents/MemberDbTopBar";
 import UsersAccountStatus from "../../../../components/globalsComponents/UsersAccountStatus";
 import { ColisButton, FormField, Img } from "../../../../kits/kits";
-import AnnounceCard from "./components/AnnounceCard";
+import AnnounceCard from "../../../../components/globalsComponents/AnnounceCard";
 import { Form, Formik } from "formik";
 import { searchValidationSchema } from "../../../../utils/validationSchema";
+import { handleFormData } from "../../../../utils/helpers";
 
 const fields = [
   {
@@ -15,7 +16,7 @@ const fields = [
     notCreatable: true,
     options: [
       { value: "porteurDeColis", label: "Porteur de colis" },
-      { value: "colis_a_transporter", label: "Colis de transporter" },
+      { value: "colis_a_transporter", label: "Colis à transporter" },
     ],
   },
   {
@@ -40,6 +41,32 @@ const fields = [
   },
 ];
 
+const datas = [
+  {
+    name: "John Doe",
+    type: "transport",
+    annoncerType: "Vip",
+    postulant: 5,
+    date: "1h00",
+    title: "Je recherche un transporteur de colis",
+    description: `Je recherche un transporteur de colis 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam placeat fugiat iure molestias nam harum omnis    architecto delectus debitis, a id, dolor minima itaque enim suscipit totam, esse blanditiis voluptate.
+    `,
+    stars: 3.5,
+  },
+  {
+    name: "Henrietta Doe",
+    type: "kilos",
+    annoncerType: "Vip",
+    postulant: 3,
+    date: "1h00",
+    title: "J'ai des kilos a vendre ",
+    description: `J'ai des kilos a vendre 
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam placeat fugiat iure molestias nam harum omnis    architecto delectus debitis, a id, dolor minima itaque enim suscipit totam, esse blanditiis voluptate.`,
+    stars: 3.5,
+  },
+];
+
 const PagePreview = () => {
   const [searchParams, setSP] = useState({
     transportorType: "",
@@ -50,18 +77,7 @@ const PagePreview = () => {
   });
 
   const [showSearchParams, setSSP] = useState(false);
-  const handleData = (e) => {
-    try {
-      const { name, value } = e.target;
-      setSP((prev) => ({ ...prev, [name]: value }));
-    } catch (err) {
-      console.log(e);
-      setSP((prev) => ({
-        ...prev,
-        transportorType: e,
-      }));
-    }
-  };
+
   return (
     <div>
       <MemberDbTopBar button />
@@ -89,7 +105,11 @@ const PagePreview = () => {
                 <Form>
                   <div className="top">
                     {fields.map((field) =>
-                      FormField(field, handleData, searchParams)
+                      FormField(
+                        field,
+                        (e) => handleFormData(e, setSP, field.name),
+                        searchParams
+                      )
                     )}
                   </div>
                   <div className="bottom">
@@ -99,7 +119,11 @@ const PagePreview = () => {
               </Formik>
             </div>
             <p>120 résultats issue de votre recherche</p>
-            <AnnounceCard />
+            {datas.map((data, index) => (
+              <Fragment key={index}>
+                <AnnounceCard announce={data} />
+              </Fragment>
+            ))}
           </div>
           <div className="right">
             <UsersAccountStatus />

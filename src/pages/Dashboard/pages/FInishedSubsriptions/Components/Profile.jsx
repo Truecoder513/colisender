@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { FormField } from "../../../../../kits/kits";
+import { handleFormData } from "../../../../../utils/helpers";
 
 const fields = [
   {
@@ -27,10 +28,6 @@ const Profile = () => {
     contact: "",
     selfiePhoto: "",
   });
-  const handleData = (e) => {
-    const { name, value } = e.target;
-    setPD((prev) => ({ ...prev, [name]: value }));
-  };
   return (
     <div className="accountInfoStep">
       <h4>Votre profil</h4>
@@ -41,7 +38,13 @@ const Profile = () => {
       >
         <Form style={{ width: "100%" }}>
           {fields.map((field) =>
-            FormField(field, handleData, profileData, true)
+            FormField(
+              field,
+              (e) => handleFormData(e, setPD, field.name),
+              profileData,
+              true,
+              true
+            )
           )}
           {/* <button type="submit">sdsdsds</button>  */}
         </Form>

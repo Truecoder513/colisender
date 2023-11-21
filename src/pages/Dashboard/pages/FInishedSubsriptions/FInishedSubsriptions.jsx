@@ -80,10 +80,10 @@ const FinishedSubsriptions = () => {
             </form>
           )}
           {accountData.type && accountData.type === "enterprise" && (
-            <EnterpriseSteppers />
+            <EnterpriseSteppers getBack={setAccountData} />
           )}
           {accountData.type && accountData.type === "particulier" && (
-            <ParticularSteppers />
+            <ParticularSteppers getBack={setAccountData} />
           )}
         </div>
       </div>

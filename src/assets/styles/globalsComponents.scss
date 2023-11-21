@@ -7,7 +7,7 @@
   padding: 16px 20px;
   position: sticky;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  z-index: 2;
+  z-index: 15;
   top: 0;
   .right {
     margin-left: auto;
@@ -109,6 +109,110 @@
   }
 }
 
+// ------------------------------------- announce card ---------------------------------------
+
+.announce-card {
+  margin-bottom: 20px;
+  .announce-item {
+    border-radius: 8px;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+    .item-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      .top {
+        display: flex;
+        gap: 10px;
+        .left {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 0;
+          h3 {
+            font-size: 20px;
+            font-weight: 600;
+            span {
+              border-radius: 4px;
+              background: #007bed;
+              padding: 5px 10px;
+              color: #fff;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+            }
+          }
+        }
+        .right {
+          display: flex;
+          gap: 20px;
+          width: 60%;
+          div {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            color: #8996a7;
+            font-size: 12px;
+            font-weight: 400;
+            gap: 30px;
+            p {
+              font-size: 14px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              svg {
+                font-size: 20px;
+                color: #8996a7;
+              }
+            }
+            span {
+              cursor: pointer;
+              border-radius: 4px;
+              background: #f8f9fd;
+              padding: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+      .desc {
+        color: #515f72;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .trip-info {
+        display: flex;
+        // justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        span {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #8996a7;
+          font-size: 12px;
+          font-weight: 400;
+          border-radius: 100px;
+          padding: 10px;
+          background: #f6f9ff;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
 // -------------------------------- shareContainer ----------------------------------------
 
 .shareContainer {
@@ -181,13 +285,14 @@
 
 // ----------------------------------------- form steppers ----------------------------------------
 
-.steppers {
+.steppers,
+.simpleSteppers {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   position: relative;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
   .length,
   .currentLength,
   .currentLength2 {
@@ -197,6 +302,18 @@
     top: 10px;
     width: 100%;
     z-index: 1;
+    .step {
+      .activeStep {
+        background-color: #1890ff;
+        color: white;
+        border: 1px solid #1890ff;
+        transition: 0.3s;
+      }
+      .completeStep {
+        color: #1890ff;
+        border: 1px solid #1890ff;
+      }
+    }
   }
   .length {
     background: rgba(0, 0, 0, 0.15);
@@ -272,6 +389,26 @@
     }
   }
 }
+.simpleSteppers {
+  justify-content: space-between;
+  width: 50%;
+  .length,
+  .currentLength {
+    position: absolute;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+  span {
+    &::before {
+      background-color: transparent !important;
+    }
+  }
+}
+
 .step-button {
   display: flex;
   align-items: center;
@@ -338,10 +475,14 @@
     background-color: white;
     width: 50%;
     height: 100vh;
-    padding: 20px;
     overflow: scroll;
     .close {
       display: flex;
+      position: sticky;
+      background-color: white;
+      padding: 10px;
+      z-index: 12;
+      top: 0;
       span {
         font-size: 30px;
         margin-left: auto;
@@ -365,6 +506,26 @@
   }
 }
 
+// ------------------------------------------- responsive styles --------------------------------
+
+@media screen and (max-width: 990px) {
+  // ------------------------------------- announce card ---------------------------------------
+
+  .announce-card {
+    .announce-item {
+      .item-content {
+        .top {
+          flex-wrap: wrap;
+
+          .right {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   // ------------------------------------------- modal  -----------------------------------------
   .modal {
@@ -376,7 +537,36 @@
     }
   }
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 570px) {
+  // ------------------------------------- announce card ---------------------------------------
+
+  .announce-card {
+    .announce-item {
+      .item-content {
+        .top {
+          flex-wrap: wrap;
+          .left {
+            h3 {
+              font-size: 18px;
+              span {
+                font-size: 12px;
+              }
+            }
+          }
+          .right {
+            width: 100%;
+            div {
+              flex-wrap: wrap;
+              gap: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
   // ----------------------------------------- form steppers ----------------------------------------
   .steppers {
     .length,

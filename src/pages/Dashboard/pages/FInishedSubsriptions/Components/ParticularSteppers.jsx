@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import Steppers from "../../../../../components/globalsComponents/Steppers";
 import StripeCheckout from "../../../../../components/globalsComponents/StripeCheckout";
@@ -9,7 +10,7 @@ import { toast } from "react-toastify";
 import AppContext from "../../../../../context/AppContext";
 import { useNavigate } from "react-router";
 
-const ParticularSteppers = () => {
+const ParticularSteppers = ({ getBack }) => {
   const [currentStep, setCurrentsStep] = useState(1);
   const { setAuth } = useContext(AppContext);
   const navigate = useNavigate();
@@ -27,6 +28,8 @@ const ParticularSteppers = () => {
     } else if (type === "prev") {
       if (currentStep > 1) {
         setCurrentsStep(currentStep - 1);
+      } else {
+        getBack((prev) => ({ ...prev, type: "" }));
       }
     }
   };

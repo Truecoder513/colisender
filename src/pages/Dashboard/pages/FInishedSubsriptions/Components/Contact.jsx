@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import { FormField } from "../../../../../kits/kits";
 import { contactValidationSchema } from "../../../../../utils/validationSchema";
 import { useState } from "react";
+import { handleFormData } from "../../../../../utils/helpers";
 
 const fields = [
   {
@@ -33,18 +34,6 @@ const Contact = () => {
     email: "",
     links: [],
   });
-  const handleData = (e) => {
-    try {
-      const { name, value } = e.target;
-      setContactData((prev) => ({ ...prev, [name]: value }));
-    } catch (err) {
-      console.log(e);
-      setContactData((prev) => ({
-        ...prev,
-        links: e,
-      }));
-    }
-  };
   return (
     <div className="accountInfoStep">
       <h4>Votre contact</h4>
@@ -54,7 +43,13 @@ const Contact = () => {
         validationSchema={contactValidationSchema}
       >
         <Form>
-          {fields.map((field) => FormField(field, handleData, contactData))}
+          {fields.map((field) =>
+            FormField(
+              field,
+              (e) => handleFormData(e, setContactData, field.name),
+              contactData
+            )
+          )}
           {/* <button type="submit">sdsdsds</button>  */}
         </Form>
       </Formik>

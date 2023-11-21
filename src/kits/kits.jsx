@@ -2,7 +2,12 @@
 import { useState } from "react";
 import "./kits.scss";
 import { ErrorMessage } from "formik";
-import { EyeClose, EyeOpen, UploadIcon } from "../assets/icons/icons";
+import {
+  ArrowToIcon,
+  EyeClose,
+  EyeOpen,
+  UploadIcon,
+} from "../assets/icons/icons";
 import { Link } from "react-router-dom";
 import CreatableSelect from "react-select/creatable";
 import Select from "react-select";
@@ -42,7 +47,13 @@ export function UploadButton({ id }) {
   );
 }
 
-export function FormField(item, handleChange, state, border = false) {
+export function FormField(
+  item,
+  handleChange,
+  state,
+  border = false,
+  code = false
+) {
   const [showPassword, setShowPswd] = useState(false);
 
   const handleInputType = () => {
@@ -60,7 +71,7 @@ export function FormField(item, handleChange, state, border = false) {
               <Select
                 defaultValue={state[item.name]}
                 name={item.name}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => handleChange(e, item.name)}
                 options={item.options ? item.options : []}
                 placeholder={item.placeholder}
               />
@@ -71,7 +82,7 @@ export function FormField(item, handleChange, state, border = false) {
                 defaultValue={state[item.name]}
                 isMulti
                 name={item.name}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => handleChange(e, item.name)}
                 options={item.options ? item.options : []}
                 placeholder={item.placeholder}
               />
@@ -85,7 +96,12 @@ export function FormField(item, handleChange, state, border = false) {
         <>
           <div className={`formikInputfield ${border ? "border" : ""}`}>
             <p>{item.placeholder}</p>
-            <input type="file" name={item.name} id={item.name} />
+            <input
+              type="file"
+              name={item.name}
+              id={item.name}
+              onChange={(e) => handleChange(e)}
+            />
             <UploadButton id={item.name} />
           </div>
           <span className="input-errors">
@@ -108,6 +124,39 @@ export function FormField(item, handleChange, state, border = false) {
             <ErrorMessage name={item.name} />
           </span>
         </>
+      ) : item.type === "textarea" ? (
+        <textarea
+          className="formikFormField"
+          name={item.name}
+          placeholder={item.placeholder}
+          value={state[item.name]}
+          onChange={(e) => handleChange(e)}
+          readOnly={item.readOnly ? true : false}
+        ></textarea>
+      ) : item.type === "double" ? (
+        <div className="formikFormField3">
+          <div>
+            <input
+              name={item.name1}
+              type={item.type1}
+              placeholder={item.placeholder1}
+              value={state[item.name1]}
+              onChange={(e) => handleChange(e)}
+              readOnly={item.readOnly ? true : false}
+            />
+          </div>
+          <ArrowToIcon />
+          <div>
+            <input
+              name={item.name2}
+              type={item.type2}
+              placeholder={item.placeholder2}
+              value={state[item.name2]}
+              onChange={(e) => handleChange(e)}
+              readOnly={item.readOnly ? true : false}
+            />
+          </div>
+        </div>
       ) : (
         <>
           <div
@@ -121,7 +170,7 @@ export function FormField(item, handleChange, state, border = false) {
               onChange={(e) => handleChange(e)}
               readOnly={item.readOnly ? true : false}
             />
-            {border && <button>Obtenir le code</button>}
+            {code && <button>Obtenir le code</button>}
             {item.type === "password" && (
               <span onClick={() => handleInputType()}>
                 {showPassword ? <EyeClose /> : <EyeOpen />}

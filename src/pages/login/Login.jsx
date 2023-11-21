@@ -6,6 +6,7 @@ import { ColisButton, FormField } from "../../kits/kits";
 import { Link, useNavigate } from "react-router-dom";
 import { LogosFacebook, LogosGoogleIcon } from "../../assets/icons/icons";
 import AppContext from "../../context/AppContext";
+import { handleFormData } from "../../utils/helpers";
 
 const loginField = [
   {
@@ -57,7 +58,11 @@ const Login = () => {
         >
           <Form>
             {loginField.map((field) =>
-              FormField(field, handleData, credentials)
+              FormField(
+                field,
+                (e) => handleFormData(e, setCredentials, field.name),
+                credentials
+              )
             )}
             <div className="othersInfo">
               <div>

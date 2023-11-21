@@ -3,6 +3,7 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { FormField } from "../../../../../kits/kits";
+import { handleFormData } from "../../../../../utils/helpers";
 
 const fieldsEnterprise = [
   {
@@ -65,14 +66,7 @@ const Localisation = ({ label, particular = false }) => {
     nationalite: "",
     adress: "",
   });
-  const handleData = (e) => {
-    const { name, value } = e.target;
-    setECD((prev) => ({ ...prev, [name]: value }));
-  };
-  const handleData2 = (e) => {
-    const { name, value } = e.target;
-    setPCD((prev) => ({ ...prev, [name]: value }));
-  };
+
   return (
     <div className="accountInfoStep">
       <h4>{label}</h4>
@@ -85,7 +79,11 @@ const Localisation = ({ label, particular = false }) => {
         >
           <Form>
             {fieldsParticular.map((field) =>
-              FormField(field, handleData2, particularContactData)
+              FormField(
+                field,
+                (e) => handleFormData(e, setPCD, field.name),
+                particularContactData
+              )
             )}
             {/* <button type="submit">sdsdsds</button>  */}
           </Form>
@@ -98,7 +96,11 @@ const Localisation = ({ label, particular = false }) => {
         >
           <Form>
             {fieldsEnterprise.map((field) =>
-              FormField(field, handleData, enterpriseContactData)
+              FormField(
+                field,
+                (e) => handleFormData(e, setECD, field.name),
+                enterpriseContactData
+              )
             )}
             {/* <button type="submit">sdsdsds</button>  */}
           </Form>

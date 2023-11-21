@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { Popover } from "@mui/material";
 import {
@@ -12,17 +13,17 @@ import {
   RiShareLine,
   UilPlaneFly,
   WeightIcon,
-} from "../../../../../assets/icons/icons";
-import { Img } from "../../../../../kits/kits";
+} from "../../assets/icons/icons";
+import { Img } from "../../kits/kits";
 import { useContext, useState } from "react";
-import AppContext from "../../../../../context/AppContext";
-import AnnonceDetails from "./AnnonceDetails";
-import { CantPostAnnonnce } from "../../../../../components/toastMessages";
-import ShareContainer from "../../../../../components/globalsComponents/ShareContainer";
+import AppContext from "../../context/AppContext";
+import AnnonceDetails from "../../pages/Dashboard/pages/Apercu/components/AnnonceDetails";
+import { CantPostAnnonnce } from "../toastMessages";
+import ShareContainer from "./ShareContainer";
 import { toast } from "react-toastify";
 
-const AnnounceCard = () => {
-  const { handeShowModal, auth } = useContext(AppContext);
+const AnnounceCard = ({ announce }) => {
+  const { handleShowModal, auth } = useContext(AppContext);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handlePopover = (event) => {
@@ -53,32 +54,36 @@ const AnnounceCard = () => {
         <ShareContainer handleClose={handleClose} />
       </Popover>
       <div
-        className="search-result"
+        className="announce-card"
         onClick={() => {
           !auth.verified
             ? toast(<CantPostAnnonnce />, { hideProgressBar: true })
-            : handeShowModal("show", <AnnonceDetails />, true);
+            : handleShowModal(
+                "show",
+                <AnnonceDetails announce={announce} />,
+                true
+              );
         }}
       >
-        <div className="s-r-item">
+        <div className="announce-item">
           <Img image={"user.jpeg"} alt={""} />
           <div className="item-content">
             <div className="top">
               <div className="left">
                 <div>
                   <h3>
-                    Alban Miro transport <span> VIP</span>{" "}
+                    {announce.name} <span> {announce.annoncerType}</span>
                   </h3>
-                  <p>etoile (4.5)</p>
+                  <p>etoile ({announce.stars})</p>
                 </div>
               </div>
               <div className="right">
                 <div className="announce-content">
                   <p>
-                    <IconProfileFill /> 05 postulants
+                    <IconProfileFill /> {announce.postulant} postulants
                   </p>
                   <p>
-                    <PhDotOutlineFill /> il y a une 1h0min
+                    <PhDotOutlineFill /> il y a une {announce.date}
                   </p>
                   <span aria-describedby={id} onClick={(e) => handlePopover(e)}>
                     <RiShareLine />
@@ -86,12 +91,7 @@ const AnnounceCard = () => {
                 </div>
               </div>
             </div>
-            <p className="desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              culpa aspernatur saepe ratione velit quidem quis vel tempore
-              dolore. Odio eaque sed culpa numquam sapiente! Quod architecto
-              aliquid itaque esse!
-            </p>
+            <p className="desc">{announce.description}</p>
             <div className="trip-info">
               <span>
                 <IonLocation />

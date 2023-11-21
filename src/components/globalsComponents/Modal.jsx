@@ -3,13 +3,13 @@ import AppContext from "../../context/AppContext";
 import { CloseIcon } from "../../assets/icons/icons";
 
 const Modal = () => {
-  const { modal, handeShowModal } = useContext(AppContext);
+  const { modal, handleShowModal } = useContext(AppContext);
   return modal.show ? (
     <div className="modal">
       <div className={`modalContainer ${modal.large ? "largeModal" : ""}`}>
         {!modal.large && (
           <div className="close">
-            <span onClick={() => handeShowModal("close")}>
+            <span onClick={() => handleShowModal("close")}>
               <CloseIcon />
             </span>
           </div>
@@ -21,5 +21,26 @@ const Modal = () => {
     ""
   );
 };
+const Modal2 = () => {
+  const { modal2 } = useContext(AppContext);
+  return modal2.show ? (
+    <div className="modal">
+      <div className={`modalContainer ${modal2.large ? "largeModal" : ""}`}>
+        {modal2.modalContent}
+      </div>
+    </div>
+  ) : (
+    ""
+  );
+};
 
-export default Modal;
+const ModalContainer = () => {
+  return (
+    <>
+      <Modal />
+      <Modal2 />
+    </>
+  );
+};
+
+export default ModalContainer;
