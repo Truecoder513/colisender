@@ -66,6 +66,7 @@ export function FormField(
     <div key={"Champ " + item.placeholder} className="coliForm">
       {item.type === "reactSelect" ? (
         <>
+          {item.label && <label>{item.label}</label>}
           {item?.notCreatable ? (
             <div className="formikFormField2">
               <Select
@@ -94,6 +95,8 @@ export function FormField(
         </>
       ) : item.type === "file" ? (
         <>
+          {item.label && <label>{item.label}</label>}
+
           <div className={`formikInputfield ${border ? "border" : ""}`}>
             <p>{item.placeholder}</p>
             <input
@@ -110,9 +113,12 @@ export function FormField(
         </>
       ) : item.type === "date" ? (
         <>
+          {item.label && <label>{item.label}</label>}
           <div className={`formikFormField`}>
             <input
-              type={state[item.name] ? item.type : "text"}
+              type={
+                item.label ? item.type : state[item.name] ? item.type : "text"
+              }
               onFocus={(e) => (e.target.type = "date")}
               name={item.name}
               id={item.name}
@@ -125,40 +131,59 @@ export function FormField(
           </span>
         </>
       ) : item.type === "textarea" ? (
-        <textarea
-          className="formikFormField"
-          name={item.name}
-          placeholder={item.placeholder}
-          value={state[item.name]}
-          onChange={(e) => handleChange(e)}
-          readOnly={item.readOnly ? true : false}
-        ></textarea>
+        <>
+          {item.label && <label>{item.label}</label>}
+          <div className="formikFormField">
+            <textarea
+              name={item.name}
+              placeholder={item.placeholder}
+              value={state[item.name]}
+              onChange={(e) => handleChange(e)}
+              readOnly={item.readOnly ? true : false}
+            ></textarea>
+          </div>
+          <span className="input-errors">
+            <ErrorMessage name={item.name} />
+          </span>
+        </>
       ) : item.type === "double" ? (
-        <div className="formikFormField3">
-          <div>
-            <input
-              name={item.name1}
-              type={item.type1}
-              placeholder={item.placeholder1}
-              value={state[item.name1]}
-              onChange={(e) => handleChange(e)}
-              readOnly={item.readOnly ? true : false}
-            />
+        <>
+          {item.label && <label>{item.label}</label>}
+          <div className="formikFormField3">
+            <div>
+              <input
+                name={item.name1}
+                type={item.type1}
+                placeholder={item.placeholder1}
+                value={state[item.name1]}
+                onChange={(e) => handleChange(e)}
+                readOnly={item.readOnly ? true : false}
+              />
+            </div>
+            <ArrowToIcon />
+            <div>
+              <input
+                name={item.name2}
+                type={item.type2}
+                placeholder={item.placeholder2}
+                value={state[item.name2]}
+                onChange={(e) => handleChange(e)}
+                readOnly={item.readOnly ? true : false}
+              />
+            </div>
           </div>
-          <ArrowToIcon />
           <div>
-            <input
-              name={item.name2}
-              type={item.type2}
-              placeholder={item.placeholder2}
-              value={state[item.name2]}
-              onChange={(e) => handleChange(e)}
-              readOnly={item.readOnly ? true : false}
-            />
+            <span className="input-errors">
+              <ErrorMessage name={item.name1} />
+            </span>
+            <span className="input-errors">
+              <ErrorMessage name={item.name2} />
+            </span>
           </div>
-        </div>
+        </>
       ) : (
         <>
+          {item.label && <label>{item.label}</label>}
           <div
             className={`formikFormField ${item.readOnly ? "readOnly" : ""} `}
           >

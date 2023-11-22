@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import WeightAnnonce from "./weightAnnonce";
+import ColisAnnonce from "./ColisAnnonce";
 
 const NewAnnonce = () => {
   const [annonceData, setAD] = useState({
@@ -10,7 +11,7 @@ const NewAnnonce = () => {
   return (
     <div>
       <div className="setAnnonceInfo">
-        <h2>Nouvelle annonce</h2>
+        <h2>Une nouvelle Annonce</h2>
         {!annonceData.type && (
           <>
             <form action="">
@@ -29,7 +30,7 @@ const NewAnnonce = () => {
                     }
                     checked={annonceData.type === "transporter"}
                   />
-                  <p>Je veux envoyé un seul colis</p>
+                  <p>Je veux envoyé un colis</p>
                 </div>
               </label>
               <label htmlFor="kilos">
@@ -55,6 +56,9 @@ const NewAnnonce = () => {
         )}
         {annonceData.type && annonceData.type === "kilos" && (
           <WeightAnnonce getBack={setAD} />
+        )}
+        {annonceData.type && annonceData.type === "transporter" && (
+          <ColisAnnonce />
         )}
       </div>
     </div>

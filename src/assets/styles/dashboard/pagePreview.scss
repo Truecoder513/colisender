@@ -90,6 +90,13 @@
 }
 
 .setAnnonceInfo {
+  .colisAnnonce {
+    padding: 20px;
+    width: 80%;
+    .addColis {
+      margin: 0px auto 20px auto;
+    }
+  }
   background: white;
   padding: 60px 36px;
   border-radius: 8px;
@@ -97,13 +104,24 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  .colisList {
+    margin: 20px 0;
+    div {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
   form {
-    width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    label {
+    > label {
       border-radius: 4px;
       display: flex;
       flex-direction: column;

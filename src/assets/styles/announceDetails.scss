@@ -150,6 +150,22 @@
       }
     }
   }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    margin: auto;
+    min-height: 100vh;
+    justify-content: center;
+    .submit {
+      display: flex;
+      button {
+        width: max-content;
+        margin-left: auto;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 968px) {

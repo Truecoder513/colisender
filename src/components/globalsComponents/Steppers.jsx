@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { CheckedMarkIcon } from "../../assets/icons/icons";
 
-const Steppers = ({ currentStep, steps, simple = false }) => {
+const Steppers = ({ currentStep, steps, simple = false, ...props }) => {
   return !simple ? (
     <div className="steppers">
       <span className="length"></span>
@@ -39,7 +39,7 @@ const Steppers = ({ currentStep, steps, simple = false }) => {
       ))}
     </div>
   ) : (
-    <div className="simpleSteppers">
+    <div className="simpleSteppers" {...props}>
       <span className="length"></span>
       <span
         className="currentLength"
