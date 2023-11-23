@@ -8,6 +8,7 @@ import "./assets/styles/login&signUp.scss";
 import "./components/header/header.scss";
 import "./assets/styles/dashboard/pagePreview.scss";
 import "./assets/styles/dashboard/finishSubcriptions.scss";
+import "./assets/styles/dashboard/annonceMarketPlace.scss";
 import AppContext from "./context/AppContext";
 import { useContext } from "react";
 import MemberDashboardLayout from "./components/layouts/MemberDashboardLayout";

@@ -40,7 +40,10 @@ button:disabled {
 }
 
 .content-padding {
-  padding: 16px 35px;
+  padding: 16px 20px;
+  + div {
+    background-color: #fff;
+  }
 }
 
 .toast-container {
@@ -69,5 +72,36 @@ button:disabled {
 @media screen and (max-width: 768px) {
   .content-padding {
     padding: 16px;
+  }
+}
+
+.restrictionPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 82vh;
+  margin: auto;
+  gap: 50px;
+  color: #2d4642;
+  h1 {
+    color: #818c8b;
+    font-size: 60px;
+    font-weight: 700;
+  }
+  p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    width: 50vw;
+  }
+  div {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    a {
+      width: max-content;
+    }
   }
 }

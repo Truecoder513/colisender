@@ -1,5 +1,7 @@
 import PagePreview from "../pages/Dashboard/pages/Apercu/PagePreview";
 import FinishedSubsriptions from "../pages/Dashboard/pages/FInishedSubsriptions/FInishedSubsriptions";
+import Parametre from "../pages/Dashboard/pages/Parametre/Parametre";
+import AnnonceMarketPlace from "../pages/Dashboard/pages/annoncesMarketPlace/AnnonceMarketPlace";
 
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
@@ -26,7 +28,7 @@ export const authedRoutes = [
   {
     path: "/annonces",
     label: "Annonces",
-    element: "",
+    element: <AnnonceMarketPlace />,
   },
   {
     path: "/stats",
@@ -36,7 +38,7 @@ export const authedRoutes = [
   {
     path: "/settings",
     label: "Parametre",
-    element: "",
+    element: <Parametre />,
   },
   {
     path: "/annoucementsHistory",
