@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useNavigate } from "react-router";
 import MemberDbTopBar from "../../../../components/globalsComponents/MemberDbTopBar";
 import {
@@ -10,6 +11,7 @@ import AnnounceCard from "../../../../components/globalsComponents/AnnounceCard"
 import { Form, Formik } from "formik";
 import { ColisButton, FormField } from "../../../../kits/kits";
 import { handleFormData } from "../../../../utils/helpers";
+import TabsContainer from "../../../../components/globalsComponents/TabsContainer";
 
 const datas = [
   {
@@ -81,11 +83,33 @@ const fields = [
 
 const AnnonceMarketPlace = () => {
   const navigate = useNavigate();
+
+  return (
+    <div className="annonces-marketPlace">
+      <MemberDbTopBar
+        left={
+          <button onClick={() => navigate(-1)}>
+            <ArrowBackRounded />
+            Annonces
+          </button>
+        }
+        button
+        type={"post"}
+      />
+
+      <TabsContainer
+        headers={["Exportation de colis", "Porteur de colis"]}
+        contents={[<Content />, <Content />]}
+      />
+    </div>
+  );
+};
+
+export default AnnonceMarketPlace;
+
+const Content = () => {
   const [showForm, setShowForm] = useState(false);
-  const [currentTab, setCurrentTab] = useState(0);
-
   const [searchBy, setSearchBy] = useState([]);
-
   const handleSearchBy = (item) => {
     if (searchBy.includes(item)) {
       setSearchBy((prev) => prev.filter((content) => content !== item));
@@ -102,104 +126,78 @@ const AnnonceMarketPlace = () => {
     traficType: "",
     time: "",
   });
-
   return (
-    <div className="annonces-marketPlace">
-      <MemberDbTopBar
-        left={
-          <button onClick={() => navigate(-1)}>
-            <ArrowBackRounded />
-            Annonces
-          </button>
-        }
-        button
-        type={"post"}
-      />
-      <div className="tabs-switcher">
-        {["Exportation de colis", "Porteur de colis"].map((item, index) => (
-          <label
-            key={index}
-            onClick={() => setCurrentTab(index)}
-            className={`${currentTab === index ? "tab-active" : ""}`}
-          >
-            {item}
-          </label>
-        ))}
-      </div>
-      <div className="content-padding">
-        <div className="tab-content">
-          <div className={`left ${showForm ? "showFormSearch" : ""}`}>
-            <Formik>
-              <Form className="filter">
-                <div className="top">
-                  <p>Filtre</p>
-                  <div>
-                    <ColisButton
-                      label={"Fermer"}
-                      onClick={() => setShowForm(false)}
-                    />
-                    <button>
-                      Tout Effacer <CloseIcon />
-                    </button>
-                  </div>
+    <div className="content-padding">
+      <div className="tab-content">
+        <div className={`left ${showForm ? "showFormSearch" : ""}`}>
+          <Formik>
+            <Form className="filter">
+              <div className="top">
+                <p>Filtre</p>
+                <div>
+                  <ColisButton
+                    label={"Fermer"}
+                    onClick={() => setShowForm(false)}
+                  />
+                  <button>
+                    Tout Effacer <CloseIcon />
+                  </button>
                 </div>
-                <div className="search-by">
-                  <h3>Rechercher par</h3>
-                  <div>
-                    {["Vip", "Normal", "Nouveau", "En cours de validation"].map(
-                      (item, index) => (
-                        <span
-                          key={index}
-                          onClick={() => handleSearchBy(item)}
-                          className={`${
-                            searchBy.includes(item) ? "choosed" : ""
-                          }`}
-                        >
-                          {item}
-                          {searchBy.includes(item) ? (
-                            <span onClick={() => handleSearchBy(item)}>
-                              <CloseCircled />
-                            </span>
-                          ) : (
-                            ""
-                          )}
-                        </span>
-                      )
-                    )}
-                  </div>
-                </div>
-                <div className="otherParams">
-                  {fields.map((field) =>
-                    FormField(
-                      field,
-                      (e) => handleFormData(e, setSP, field.name),
-                      searchParams
+              </div>
+              <div className="search-by">
+                <h3>Rechercher par</h3>
+                <div>
+                  {["Vip", "Normal", "Nouveau", "En cours de validation"].map(
+                    (item, index) => (
+                      <span
+                        key={index}
+                        onClick={() => handleSearchBy(item)}
+                        className={`${
+                          searchBy.includes(item) ? "choosed" : ""
+                        }`}
+                      >
+                        {item}
+                        {searchBy.includes(item) ? (
+                          <span onClick={() => handleSearchBy(item)}>
+                            <CloseCircled />
+                          </span>
+                        ) : (
+                          ""
+                        )}
+                      </span>
                     )
                   )}
                 </div>
+              </div>
+              <div className="otherParams">
+                {fields.map((field) =>
+                  FormField(
+                    field,
+                    (e) => handleFormData(e, setSP, field.name),
+                    searchParams
+                  )
+                )}
+              </div>
 
-                <ColisButton type="submit" label={"Valider la recherche"} />
-              </Form>
-            </Formik>
-          </div>
-          <div className="right">
-            <ColisButton
-              label={"Formulaire de recherche"}
-              onClick={() => setShowForm(true)}
-            />
-            <p style={{ fontSize: "14px", margin: "20px 0" }}>
-              120 résultats issue de votre recherche
-            </p>
-            {datas.map((data, index) => (
-              <Fragment key={index}>
-                <AnnounceCard announce={data} />
-              </Fragment>
-            ))}
-          </div>
+              <ColisButton type="submit" label={"Valider la recherche"} />
+            </Form>
+          </Formik>
+        </div>
+        <div className="right">
+          <ColisButton
+            label={"Formulaire de recherche"}
+            onClick={() => setShowForm(true)}
+          />
+          <p style={{ fontSize: "14px", margin: "20px 0" }}>
+            120 résultats issue de votre recherche
+          </p>
+          {datas.map((data, index) => (
+            <Fragment key={index}>
+              <AnnounceCard announce={data} />
+            </Fragment>
+          ))}
         </div>
       </div>
     </div>
   );
 };
-
-export default AnnonceMarketPlace;

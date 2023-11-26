@@ -1,0 +1,201 @@
+.subscribe {
+  position: relative;
+  .info {
+    border-radius: 8px;
+    background: #fff;
+    position: absolute;
+    width: 95%;
+    z-index: 15;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 100px;
+      h1 {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        span:first-child {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          display: inline-block;
+          background-color: #288c5c;
+        }
+        span {
+          font-weight: 300;
+          color: #288c5c;
+        }
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        h3 {
+          font-size: 20px;
+        }
+        p {
+          font-weight: 200;
+        }
+        a {
+          padding: 10px 16px;
+          background-color: #1890ff;
+          color: white;
+          width: max-content;
+          border-radius: 5px;
+        }
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .newSubscription {
+    border-radius: 8px;
+    background: #fff;
+    position: absolute;
+    width: 95%;
+    z-index: 15;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 50px 100px;
+    h1 {
+      color: #231d4f;
+      font-size: 40px;
+      font-weight: 400;
+    }
+    p {
+      margin: 20px 0;
+      color: #848199;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .price {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 20px;
+      .jackpot {
+        .jp-bubble {
+          font-size: 11px;
+          border-radius: 13.5px;
+          background: #403879;
+          max-width: max-content;
+          padding: 7px 20px;
+          margin-left: auto;
+        }
+        color: white;
+        background: #231d4f;
+        height: 530px;
+        ul li,
+        p,
+        h1,
+        h3,
+        span {
+          color: white;
+        }
+        svg {
+          color: white;
+        }
+        button {
+          background: #ddaa02;
+          opacity: 1;
+        }
+      }
+      div {
+        border-radius: 26px;
+        color: #848199;
+        font-size: 15px;
+        font-weight: 500;
+        height: 500px;
+        padding: 20px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h1,
+        h3 {
+          color: #231d4f;
+          font-size: 36px;
+          font-weight: 700;
+          span {
+            color: #848199;
+            font-size: 17px;
+            font-weight: 500;
+          }
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+        p {
+          font-size: 15px;
+        }
+        ul {
+          li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            svg {
+              font-size: 25px;
+              color: #dda902;
+            }
+          }
+        }
+        button {
+          margin: auto auto 0 auto;
+          border-radius: 24px;
+          opacity: 0.5;
+          background: #231d4f;
+          width: 100%;
+          padding: 15px;
+          justify-content: center;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .subscribe {
+    .info {
+      > div {
+        gap: 30px;
+      }
+    }
+    .newSubscription {
+      padding: 50px;
+
+      .price {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .subscribe {
+    .info {
+      grid-template-columns: 1fr;
+      > div {
+        gap: 30px;
+      }
+    }
+    .newSubscription {
+      padding: 20px;
+
+      .price {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

@@ -9,7 +9,12 @@ import DevisPorteurColis from "../../pages/Dashboard/pages/Apercu/components/Dev
 
 /* eslint-disable react/prop-types */
 
-const MemberDbTopBar = ({ left = "", button = false, type = "post" }) => {
+const MemberDbTopBar = ({
+  left = "",
+  button = false,
+  type = "post",
+  style,
+}) => {
   const { auth, handleShowModal, handleShowModal2 } = useContext(AppContext);
 
   const handlePost = () => {
@@ -29,7 +34,7 @@ const MemberDbTopBar = ({ left = "", button = false, type = "post" }) => {
   };
 
   return (
-    <div className="MemberDbTopBar">
+    <div className="MemberDbTopBar" style={style ? style : {}}>
       <div className="left">{left}</div>
       {button && type === "post" && (
         <div className="right" onClick={handlePost}>

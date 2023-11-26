@@ -7,9 +7,13 @@
   padding: 16px 20px;
   position: sticky;
   border-bottom: 1px solid rgba(149, 157, 165, 0.2);
-
   z-index: 15;
   top: 0;
+  .left {
+    button {
+      font-size: 20px;
+    }
+  }
   .right {
     margin-left: auto;
   }
@@ -509,6 +513,28 @@
   }
 }
 
+// ---------------------------  tabs ---------------------------------------
+.tabs-switcher {
+  background-color: white;
+  padding: 20px 20px 0px 20px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 70px;
+  gap: 20px;
+  z-index: 10;
+  label {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+  }
+  .tab-active {
+    color: #1890ff;
+    border-bottom: 2px solid #1890ff;
+  }
+}
+
 // ------------------------------------------- responsive styles --------------------------------
 
 @media screen and (max-width: 990px) {
@@ -601,6 +627,22 @@
   .modal {
     .modalContainer {
       width: 100%;
+    }
+  }
+
+  // ---------------------------  tabs ---------------------------------------
+  .tabs-switcher {
+    background-color: white;
+    padding: 10px 10px 0px 10px;
+    gap: 10px;
+    z-index: 10;
+    flex-wrap: wrap;
+    label {
+      font-size: 14px;
+    }
+    .tab-active {
+      color: #1890ff;
+      border-bottom: 2px solid #1890ff;
     }
   }
 }

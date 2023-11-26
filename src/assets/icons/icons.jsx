@@ -641,3 +641,41 @@ export function IonTrashSharp(props) {
     </svg>
   );
 }
+
+export function EditIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h8.925l-2 2H5v14h14v-6.95l2-2V19q0 .825-.588 1.413T19 21H5Zm7-9Zm-3 3v-4.25l9.175-9.175q.3-.3.675-.45t.75-.15q.4 0 .763.15t.662.45L22.425 3q.275.3.425.663T23 4.4q0 .375-.138.738t-.437.662L13.25 15H9ZM21.025 4.4l-1.4-1.4l1.4 1.4ZM11 13h1.4l5.8-5.8l-.7-.7l-.725-.7L11 11.575V13Zm6.5-6.5l-.725-.7l.725.7l.7.7l-.7-.7Z"
+      ></path>
+    </svg>
+  );
+}
+
+export function IconsDoneDuotone(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <g fill="none">
+        <circle cx="12" cy="12" r="8" fill="#5243C2" fillOpacity=".25"></circle>
+        <path
+          stroke="currentColor"
+          strokeWidth="1.2"
+          d="m8.5 11l2.894 2.894a.15.15 0 0 0 .212 0L19.5 6"
+        ></path>
+      </g>
+    </svg>
+  );
+}

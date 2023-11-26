@@ -2,6 +2,10 @@ import PagePreview from "../pages/Dashboard/pages/Apercu/PagePreview";
 import FinishedSubsriptions from "../pages/Dashboard/pages/FInishedSubsriptions/FInishedSubsriptions";
 import Parametre from "../pages/Dashboard/pages/Parametre/Parametre";
 import AnnonceMarketPlace from "../pages/Dashboard/pages/annoncesMarketPlace/AnnonceMarketPlace";
+import MyProfil from "../pages/Dashboard/pages/monProfil/MyProfil";
+import Statisques from "../pages/Dashboard/pages/statistiques/Statisques";
+import Subscriptions from "../pages/Dashboard/pages/subscriptions/Subscriptions";
+import SubscriptionsTariff from "../pages/Dashboard/pages/subscriptions/SubscriptionsTariff";
 
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
@@ -33,7 +37,7 @@ export const authedRoutes = [
   {
     path: "/stats",
     label: "Mes satistiques",
-    element: "",
+    element: <Statisques />,
   },
   {
     path: "/settings",
@@ -48,12 +52,17 @@ export const authedRoutes = [
   {
     path: "/profil",
     label: "Profile",
-    element: "",
+    element: <MyProfil />,
   },
   {
     path: "/subscriptions",
     label: "Abonnement",
-    element: "",
+    element: <Subscriptions />,
+  },
+  {
+    path: "/subscriptionsTariff",
+    label: "Abonnement",
+    element: <SubscriptionsTariff />,
   },
   {
     path: "/reports",

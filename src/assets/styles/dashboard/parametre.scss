@@ -1,0 +1,64 @@
+.parametre {
+  .content-padding {
+    .content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      .mdp {
+        width: 40%;
+        margin-top: 20px;
+      }
+      .info-perso {
+        padding: 20px;
+        border-bottom: 1px solid #e0e4ec;
+        margin-bottom: 20px;
+        input {
+          display: none;
+        }
+        label {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+          span {
+            cursor: pointer;
+            color: #7b61ff;
+            font-size: 20px;
+          }
+        }
+        img {
+          border-radius: 50%;
+          height: 120px;
+          width: 120px;
+        }
+      }
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .parametre {
+    .content-padding {
+      .content {
+        .mdp {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 568px) {
+  .parametre {
+    .content-padding {
+      .content {
+        form {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}
