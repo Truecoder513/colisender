@@ -2,13 +2,16 @@ import { useNavigate } from "react-router";
 import { ArrowBackRounded } from "../../../../assets/icons/icons";
 import MemberDbTopBar from "../../../../components/globalsComponents/MemberDbTopBar";
 import { ColisButton } from "../../../../kits/kits";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import EnterpriseSteppers from "./Components/EnterpriseSteppers";
 import ParticularSteppers from "./Components/ParticularSteppers";
+import AppContext from "../../../../context/AppContext";
 
 const FinishedSubsriptions = () => {
   const navigate = useNavigate();
+
+  const { auth } = useContext(AppContext);
 
   const [accountData, setAccountData] = useState({
     type: "",
@@ -19,6 +22,12 @@ const FinishedSubsriptions = () => {
       ? toast.warning("Veuillez choisir le type de compte ")
       : "";
   };
+
+  useEffect(() => {
+    auth.verified ? navigate(-1) : "";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="finishSubcription">
       <MemberDbTopBar

@@ -11,6 +11,7 @@ import "./assets/styles/dashboard/finishSubcriptions.scss";
 import "./assets/styles/dashboard/annonceMarketPlace.scss";
 import "./assets/styles/dashboard/parametre.scss";
 import "./assets/styles/dashboard/stats.scss";
+import "./assets/styles/dashboard/myProfil&notes.scss";
 import "./assets/styles/dashboard/subscribe.scss";
 import AppContext from "./context/AppContext";
 import { useContext } from "react";

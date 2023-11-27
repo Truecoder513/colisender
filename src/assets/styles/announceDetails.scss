@@ -124,10 +124,10 @@
       .accordiondetails {
         display: flex;
         gap: 40px;
+        flex-wrap: wrap;
         div {
           display: flex;
           flex-direction: column;
-          flex-wrap: wrap;
           font-size: 14px;
         }
       }

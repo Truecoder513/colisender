@@ -535,6 +535,24 @@
   }
 }
 
+// ------------------------------------ filterData components --------------------------------------
+
+.filterData {
+  margin-bottom: 20px;
+  form {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+    > div {
+      background-color: white;
+      > div {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
 // ------------------------------------------- responsive styles --------------------------------
 
 @media screen and (max-width: 990px) {

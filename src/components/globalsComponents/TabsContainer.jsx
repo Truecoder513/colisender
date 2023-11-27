@@ -10,7 +10,7 @@ const TabsContainer = ({ headers, contents, topStyle }) => {
         {headers.map((item, index) => (
           <label
             style={topStyle ? { border: "none" } : {}}
-            key={index}
+            key={item + index}
             onClick={() => setCurrentTab(index)}
             className={`${currentTab === index ? "tab-active" : ""}`}
           >
