@@ -7,6 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogosFacebook, LogosGoogleIcon } from "../../assets/icons/icons";
 import AppContext from "../../context/AppContext";
 import { handleFormData } from "../../utils/helpers";
+import { usersTable } from "../../utils/users";
+import { toast } from "react-toastify";
 
 const loginField = [
   {
@@ -42,9 +44,21 @@ const Login = () => {
     setCredentials((prev) => ({ ...prev, [name]: value }));
   };
   const handleFormSubmit = () => {
-    setAuth((prev) => ({ ...prev, isAuth: true }));
-    localStorage.setItem("coliToken", "hello");
-    navigate("/apercu");
+    const usersInfos = usersTable.filter(
+      (item) =>
+        item.email === credentials.email &&
+        item.password === credentials.password
+    );
+
+    console.log(usersInfos);
+    if (usersInfos.length > 0) {
+      setAuth((prev) => ({ ...prev, isAuth: true, authInfos: usersInfos[0] }));
+      localStorage.setItem("coliToken", "hello");
+      localStorage.setItem("colisAuthInfos", JSON.stringify(usersInfos[0]));
+      navigate("/apercu");
+    } else {
+      toast.error("Utilisateur inconnu");
+    }
   };
   return (
     <AuthLayaout>

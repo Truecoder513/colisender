@@ -2,10 +2,10 @@ import { toast } from "react-toastify";
 import { ColisButton } from "../../kits/kits";
 import { useContext } from "react";
 import AppContext from "../../context/AppContext";
-import NewAnnonce from "../../pages/Dashboard/pages/Apercu/components/NewAnnonce";
+import NewAnnonce from "../../pages/Dashboard/memberDashboard/pages/Apercu/components/NewAnnonce";
 import { CantPostAnnonnce } from "../toastMessages";
-import DevisColis from "../../pages/Dashboard/pages/Apercu/components/DevisColis";
-import DevisPorteurColis from "../../pages/Dashboard/pages/Apercu/components/DevisPorteurColis";
+import DevisColis from "../../pages/Dashboard/memberDashboard/pages/Apercu/components/DevisColis";
+import DevisPorteurColis from "../../pages/Dashboard/memberDashboard/pages/Apercu/components/DevisPorteurColis";
 
 /* eslint-disable react/prop-types */
 

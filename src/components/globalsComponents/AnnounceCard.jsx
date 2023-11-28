@@ -17,7 +17,7 @@ import {
 import { Img } from "../../kits/kits";
 import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
-import AnnonceDetails from "../../pages/Dashboard/pages/Apercu/components/AnnonceDetails";
+import AnnonceDetails from "../../pages/Dashboard/memberDashboard/pages/Apercu/components/AnnonceDetails";
 import { CantPostAnnonnce } from "../toastMessages";
 import ShareContainer from "./ShareContainer";
 import { toast } from "react-toastify";

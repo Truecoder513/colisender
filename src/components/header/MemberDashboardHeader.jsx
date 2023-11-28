@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Img } from "../../kits/kits";
 import { authedRoutes } from "../../routes/routes";
 import {
@@ -6,11 +6,16 @@ import {
   IonIosArrowDown,
   IonNotifications,
   MenuBurguer,
+  UilPower,
 } from "../../assets/icons/icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AppContext from "../../context/AppContext";
 
 const MemberDashboardHeader = () => {
+  const { setAuth } = useContext(AppContext);
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <>
       <nav className="memberDashbordHeader">
@@ -52,9 +57,20 @@ const MemberDashboardHeader = () => {
             <Img image={"user.jpeg"} alt={"user"} />
             <span>Alex Jones</span>
           </div>
-          <span onClick={() => setShowMenu(false)}>
-            <CloseCircled />
-          </span>
+          <div>
+            <span
+              onClick={() => {
+                setAuth((prev) => ({ ...prev, isAuth: false }));
+                localStorage.removeItem("coliToken");
+                navigate("/");
+              }}
+            >
+              <UilPower />
+            </span>
+            <span onClick={() => setShowMenu(false)}>
+              <CloseCircled />
+            </span>
+          </div>
         </div>
         <ul className="desktopRoutes">
           {authedRoutes.map(

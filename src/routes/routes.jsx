@@ -1,13 +1,20 @@
-import PagePreview from "../pages/Dashboard/pages/Apercu/PagePreview";
-import FinishedSubsriptions from "../pages/Dashboard/pages/FInishedSubsriptions/FInishedSubsriptions";
-import Parametre from "../pages/Dashboard/pages/Parametre/Parametre";
-import AnnonceHistory from "../pages/Dashboard/pages/annonceHistory/AnnonceHistory";
-import AnnonceMarketPlace from "../pages/Dashboard/pages/annoncesMarketPlace/AnnonceMarketPlace";
-import MyProfil from "../pages/Dashboard/pages/monProfil/MyProfil";
-import NoteRecommandation from "../pages/Dashboard/pages/monProfil/NoteRecommandation";
-import Statisques from "../pages/Dashboard/pages/statistiques/Statisques";
-import Subscriptions from "../pages/Dashboard/pages/subscriptions/Subscriptions";
-import SubscriptionsTariff from "../pages/Dashboard/pages/subscriptions/SubscriptionsTariff";
+import {
+  AdsIcon,
+  AnnonceIcon,
+  DashboardIcon,
+  MemberIcon,
+  SettingsIcon,
+} from "../assets/icons/icons";
+import PagePreview from "../pages/Dashboard/memberDashboard/pages/Apercu/PagePreview";
+import FinishedSubsriptions from "../pages/Dashboard/memberDashboard/pages/FInishedSubsriptions/FInishedSubsriptions";
+import Parametre from "../pages/Dashboard/memberDashboard/pages/Parametre/Parametre";
+import AnnonceHistory from "../pages/Dashboard/memberDashboard/pages/annonceHistory/AnnonceHistory";
+import AnnonceMarketPlace from "../pages/Dashboard/memberDashboard/pages/annoncesMarketPlace/AnnonceMarketPlace";
+import MyProfil from "../pages/Dashboard/memberDashboard/pages/monProfil/MyProfil";
+import NoteRecommandation from "../pages/Dashboard/memberDashboard/pages/monProfil/NoteRecommandation";
+import Statisques from "../pages/Dashboard/memberDashboard/pages/statistiques/Statisques";
+import Subscriptions from "../pages/Dashboard/memberDashboard/pages/subscriptions/Subscriptions";
+import SubscriptionsTariff from "../pages/Dashboard/memberDashboard/pages/subscriptions/SubscriptionsTariff";
 
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
@@ -75,5 +82,62 @@ export const authedRoutes = [
     path: "/finishSubscriptions",
     label: "Finaliser Mon inscription",
     element: <FinishedSubsriptions />,
+  },
+];
+
+export const modoRoutes = [
+  {
+    path: "/",
+    label: (
+      <>
+        <DashboardIcon /> Dashboard
+      </>
+    ),
+    element: "h",
+  },
+  {
+    path: "/annoncemments",
+    label: (
+      <>
+        <AnnonceIcon /> Annonce
+      </>
+    ),
+    element: "h",
+  },
+  {
+    path: "/members",
+    label: (
+      <>
+        <MemberIcon /> Membres
+      </>
+    ),
+    element: "h",
+  },
+  {
+    path: "/deals",
+    label: (
+      <>
+        <MemberIcon /> Deals
+      </>
+    ),
+    element: "h",
+  },
+  {
+    path: "/ads",
+    label: (
+      <>
+        <AdsIcon /> Ads
+      </>
+    ),
+    element: "h",
+  },
+  {
+    path: "/settings",
+    label: (
+      <>
+        <SettingsIcon /> Paramètre
+      </>
+    ),
+    element: "h",
   },
 ];

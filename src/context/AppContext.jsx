@@ -7,7 +7,9 @@ export const AppContextProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isAuth: localStorage.getItem("coliToken") ? true : false,
     verified: localStorage.getItem("colisAccountActive") ? true : false,
-    authInfos: null,
+    authInfos: localStorage.getItem("colisAuthInfos")
+      ? JSON.parse(localStorage.getItem("colisAuthInfos"))
+      : null,
     authToken: null,
   });
   const [modal, setModalData] = useState({
