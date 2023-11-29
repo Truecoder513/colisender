@@ -55,7 +55,7 @@ const Login = () => {
       setAuth((prev) => ({ ...prev, isAuth: true, authInfos: usersInfos[0] }));
       localStorage.setItem("coliToken", "hello");
       localStorage.setItem("colisAuthInfos", JSON.stringify(usersInfos[0]));
-      navigate("/apercu");
+      usersInfos[0].role === "users" ? navigate("/apercu") : navigate("/");
     } else {
       toast.error("Utilisateur inconnu");
     }

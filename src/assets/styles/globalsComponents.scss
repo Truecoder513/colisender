@@ -552,6 +552,23 @@
     }
   }
 }
+.filterData2 {
+  margin: 20px;
+  display: flex;
+  form {
+    margin-left: auto;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    > div {
+      background-color: white;
+      > div {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
 
 // ------------------------------------------- responsive styles --------------------------------
 

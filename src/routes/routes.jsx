@@ -5,6 +5,7 @@ import {
   MemberIcon,
   SettingsIcon,
 } from "../assets/icons/icons";
+import AnnoncesOverviewDetails from "../components/globalsComponents/AnnoncesOverviewDetails";
 import PagePreview from "../pages/Dashboard/memberDashboard/pages/Apercu/PagePreview";
 import FinishedSubsriptions from "../pages/Dashboard/memberDashboard/pages/FInishedSubsriptions/FInishedSubsriptions";
 import Parametre from "../pages/Dashboard/memberDashboard/pages/Parametre/Parametre";
@@ -15,6 +16,9 @@ import NoteRecommandation from "../pages/Dashboard/memberDashboard/pages/monProf
 import Statisques from "../pages/Dashboard/memberDashboard/pages/statistiques/Statisques";
 import Subscriptions from "../pages/Dashboard/memberDashboard/pages/subscriptions/Subscriptions";
 import SubscriptionsTariff from "../pages/Dashboard/memberDashboard/pages/subscriptions/SubscriptionsTariff";
+import Home from "../pages/Dashboard/modoDashboard/pages/Home/Home";
+import MembersList from "../pages/Dashboard/modoDashboard/pages/Members/MembersList";
+import AnnoncesOverwiew from "../pages/Dashboard/modoDashboard/pages/annonce/AnnoncesOverwiew";
 
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
@@ -93,7 +97,7 @@ export const modoRoutes = [
         <DashboardIcon /> Dashboard
       </>
     ),
-    element: "h",
+    element: <Home />,
   },
   {
     path: "/annoncemments",
@@ -102,7 +106,7 @@ export const modoRoutes = [
         <AnnonceIcon /> Annonce
       </>
     ),
-    element: "h",
+    element: <AnnoncesOverwiew />,
   },
   {
     path: "/members",
@@ -111,7 +115,7 @@ export const modoRoutes = [
         <MemberIcon /> Membres
       </>
     ),
-    element: "h",
+    element: <MembersList />,
   },
   {
     path: "/deals",
@@ -139,5 +143,10 @@ export const modoRoutes = [
       </>
     ),
     element: "h",
+  },
+  {
+    path: "/annoncesDetails/:type",
+    label: "annoncesDetails",
+    element: <AnnoncesOverviewDetails />,
   },
 ];

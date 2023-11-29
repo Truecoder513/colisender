@@ -27,8 +27,8 @@ const Parametre = () => {
             topStyle={{
               padding: "0",
               top: "0",
-              borderBottom: "1px solid #E0E4EC",
             }}
+            border={false}
             headers={["Information Personnelle", "Mot de passe"]}
             contents={[<InfoPersonnelle />, <Mdp />]}
           />

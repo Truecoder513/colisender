@@ -12,7 +12,7 @@ const fields = [
   {
     type: "date",
     name: "date",
-    placeholder: "Trier par départ",
+    placeholder: "Rechercher une date",
   },
   {
     type: "text",
@@ -60,3 +60,47 @@ const FilterDataComponents = () => {
 };
 
 export default FilterDataComponents;
+
+const fields2 = [
+  {
+    type: "text",
+    name: "searchText",
+    placeholder: "Rechercher ",
+  },
+  {
+    type: "reactSelect",
+    name: "statut",
+    placeholder: "Statut",
+    options: [
+      { value: "valide", label: "Validée" },
+      { value: "refuser", label: "Refusé" },
+    ],
+  },
+  {
+    type: "date",
+    name: "date",
+    placeholder: "Rechercher une date",
+  },
+];
+export const FilterDataComponents2 = () => {
+  const [filterParams, setFilterParams] = useState({
+    searchText: "",
+    date: "",
+    statut: "",
+  });
+  return (
+    <div className="filterData2">
+      <Formik>
+        <Form>
+          {fields2.map((field) =>
+            FormField(
+              field,
+              (e) => handleFormData(e, setFilterParams, field.name),
+              filterParams
+            )
+          )}
+        </Form>
+      </Formik>
+    </div>
+  );
+};

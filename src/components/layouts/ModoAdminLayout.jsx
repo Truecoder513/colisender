@@ -8,7 +8,7 @@ const ModoAdminLayout = ({ children }) => {
   return (
     <div>
       <ModoAdminDashboardHearder setShowMenu={setShowMenu} />
-      <div className="adminModoLayout">
+      <div className={`adminModoLayout ${showMenu ? "stopSticky" : ""}`}>
         <div className={`left ${showMenu ? "showMenu" : ""}`}>
           <ModoAdminNavBar setShowMenu={setShowMenu} />
         </div>

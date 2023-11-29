@@ -7,14 +7,8 @@ import {
 import MemberDbTopBar from "../../../../../components/globalsComponents/MemberDbTopBar";
 import TabsContainer from "../../../../../components/globalsComponents/TabsContainer";
 import FilterDataComponents from "../../../../../components/globalsComponents/FilterDataComponents";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
 import { Img } from "../../../../../kits/kits";
+import Tables from "../../../../../components/globalsComponents/Tables";
 
 const AnnonceHistory = () => {
   const navigate = useNavigate();
@@ -47,311 +41,257 @@ const AnnonceHistory = () => {
 
 export default AnnonceHistory;
 
-const StyledTableCell = styled(TableCell)(() => ({
-  [`&.${tableCellClasses.head}`]: {
-    background: "#708FCB",
-    div: {
-      background: "white",
-      textAlign: "center",
-      padding: "2px 10px",
-      borderRadius: "5px",
-      color: "black",
-      fontSize: "12px",
-    },
+const exportationData = [
+  {
+    first: (
+      <div>
+        <p>Groupe électrogène</p>
+        <p>150kg</p>
+      </div>
+    ),
+    second: "Paris",
+    third: "Bordeau",
+    fourth: "11-11-2023",
+    fifth: "Trafique Régional",
+    sixth: (
+      <div className="images">
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+      </div>
+    ),
+    seventh: (
+      <span className="validate">
+        <PhDotOutlineFill /> Validée
+      </span>
+    ),
   },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 12,
-    borderTop: "1px solid rgba(0, 0, 0, 0.05) ",
+  {
+    first: (
+      <div>
+        <p>Groupe électrogène</p>
+        <p>150kg</p>
+      </div>
+    ),
+    second: "Paris",
+    third: "Bordeau",
+    fourth: "11-11-2023",
+    fifth: "Trafique Régional",
+    sixth: (
+      <div className="images">
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+      </div>
+    ),
+    seventh: (
+      <span className="expired">
+        <PhDotOutlineFill /> Expiré
+      </span>
+    ),
   },
-  [`.images`]: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "10px",
-    img: {
-      width: "50px",
-      heigth: "50px",
-    },
-  },
-  [`.expired`]: {
-    color: "#FF4D4F",
-    svg: {
-      fill: "#FF4D4F",
-    },
-  },
-  [`.validate`]: {
-    color: "#288C5C",
-    svg: {
-      fill: "#288C5C",
-    },
-  },
-  [`span`]: {
-    display: "flex",
-    alignItems: "center",
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(() => ({
-  bordeRadius: "4px",
-}));
+];
 
 const ExportationHistory = () => {
   return (
     <div className="content-padding">
       <FilterDataComponents />
       <div className="ctp-content">
-        <TableContainer>
-          <Table
-            aria-label="customized table"
-            style={{
-              borderCollapse: "separate",
-              borderSpacing: "0px 10px",
-            }}
-          >
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>
-                  <div>Colis à Expédier</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Lieu Départ</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Destination</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Date</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Type de trafique</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Image</div>
-                </StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row">
-                  <div>
-                    <p>Groupe électrogène</p>
-                    <p>150kg</p>
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">Paris</StyledTableCell>
-                <StyledTableCell align="center">Bordeau</StyledTableCell>
-                <StyledTableCell align="center">16-07-2023</StyledTableCell>
-                <StyledTableCell align="center">
-                  Trafique Régional
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div className="images">
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <span className="expired">
-                    <PhDotOutlineFill /> Expiré
-                  </span>
-                </StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row">
-                  <div>
-                    <p>Groupe électrogène</p>
-                    <p>150kg</p>
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">Paris</StyledTableCell>
-                <StyledTableCell align="center">Bordeau</StyledTableCell>
-                <StyledTableCell align="center">16-07-2023</StyledTableCell>
-                <StyledTableCell align="center">
-                  Trafique Régional
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div className="images">
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <span className="validate">
-                    <PhDotOutlineFill /> Validée
-                  </span>
-                </StyledTableCell>
-              </StyledTableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Tables
+          tableHeader={[
+            {
+              key: "first",
+              label: "Colis à Expédier",
+            },
+            {
+              key: "second",
+              label: "Lieu Départ",
+            },
+            {
+              key: "third",
+              label: "Destination",
+            },
+            {
+              key: "fourth",
+              label: "Date",
+            },
+            {
+              key: "fifth",
+              label: "Type de trafique",
+            },
+            {
+              key: "sixth",
+              label: "Image",
+            },
+            {
+              key: "seventh",
+              label: "Statut",
+            },
+          ]}
+          tableData={exportationData}
+        />
       </div>
     </div>
   );
 };
+
+const porteurData = [
+  {
+    first: (
+      <div>
+        <p>Groupe électrogène</p>
+        <p>150kg</p>
+      </div>
+    ),
+    second: "Paris",
+    third: "Bordeau",
+    fourth: "11-11-2023",
+    fifth: "Trafique Régional",
+    sixth: (
+      <span className="validate">
+        <PhDotOutlineFill /> Validée
+      </span>
+    ),
+  },
+  {
+    first: (
+      <div>
+        <p>Groupe électrogène</p>
+        <p>150kg</p>
+      </div>
+    ),
+    second: "Paris",
+    third: "Bordeau",
+    fourth: "11-11-2023",
+    fifth: "Trafique Régional",
+
+    sixth: (
+      <span className="expired">
+        <PhDotOutlineFill /> Expiré
+      </span>
+    ),
+  },
+];
 
 const PorteurHistory = () => {
   return (
     <div className="content-padding">
       <FilterDataComponents />
       <div className="ctp-content">
-        <TableContainer>
-          <Table
-            aria-label="customized table"
-            style={{
-              borderCollapse: "separate",
-              borderSpacing: "0px 10px",
-            }}
-          >
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>
-                  <div>Colis à convoyer</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Lieu Départ</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Destination</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Date</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Type de trafique</div>
-                </StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row">
-                  <div>
-                    <p>Groupe électrogène</p>
-                    <p>150kg</p>
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">Paris</StyledTableCell>
-                <StyledTableCell align="center">Bordeau</StyledTableCell>
-                <StyledTableCell align="center">16-07-2023</StyledTableCell>
-                <StyledTableCell align="center">
-                  Trafique Régional
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <span className="expired">
-                    <PhDotOutlineFill /> Expiré
-                  </span>
-                </StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row">
-                  <div>
-                    <p>Groupe électrogène</p>
-                    <p>150kg</p>
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">Paris</StyledTableCell>
-                <StyledTableCell align="center">Bordeau</StyledTableCell>
-                <StyledTableCell align="center">16-07-2023</StyledTableCell>
-                <StyledTableCell align="center">
-                  Trafique Régional
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <span className="validate">
-                    <PhDotOutlineFill /> Validée
-                  </span>
-                </StyledTableCell>
-              </StyledTableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Tables
+          tableHeader={[
+            {
+              key: "first",
+              label: "Colis à Expédier",
+            },
+            {
+              key: "second",
+              label: "Lieu Départ",
+            },
+            {
+              key: "third",
+              label: "Destination",
+            },
+            {
+              key: "fourth",
+              label: "Date",
+            },
+            {
+              key: "fifth",
+              label: "Type de trafique",
+            },
+            {
+              key: "sixth",
+              label: "Statut",
+            },
+          ]}
+          tableData={porteurData}
+        />
       </div>
     </div>
   );
 };
+
+const candidateData = [
+  {
+    first: (
+      <div>
+        <p>Groupe électrogène</p>
+        <p>150kg</p>
+      </div>
+    ),
+    second: "Paris",
+    third: "Bordeau",
+    fourth: "11-11-2023",
+    fifth: "Trafique Régional",
+    sixth: (
+      <div className="images">
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+      </div>
+    ),
+    seventh: (
+      <span className="validate">
+        <PhDotOutlineFill /> Validée
+      </span>
+    ),
+  },
+  {
+    first: (
+      <div>
+        <p>Groupe électrogène</p>
+        <p>150kg</p>
+      </div>
+    ),
+    second: "Paris",
+    third: "Bordeau",
+    fourth: "11-11-2023",
+    fifth: "Trafique Régional",
+    sixth: (
+      <div className="images">
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+        <Img image={"user.jpeg"} />
+      </div>
+    ),
+  },
+];
 
 const CandidateHistory = () => {
   return (
     <div className="content-padding">
       <FilterDataComponents />
       <div className="ctp-content">
-        <TableContainer>
-          <Table
-            aria-label="customized table"
-            style={{
-              borderCollapse: "separate",
-              borderSpacing: "0px 10px",
-            }}
-          >
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>
-                  <div>Colis à Expédier</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Lieu Départ</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Destination</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Date</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Type de trafique</div>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div>Image</div>
-                </StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row">
-                  <div>
-                    <p>Groupe électrogène</p>
-                    <p>150kg</p>
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">Paris</StyledTableCell>
-                <StyledTableCell align="center">Bordeau</StyledTableCell>
-                <StyledTableCell align="center">16-07-2023</StyledTableCell>
-                <StyledTableCell align="center">
-                  Trafique Régional
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div className="images">
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                  </div>
-                </StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow>
-                <StyledTableCell component="th" scope="row">
-                  <div>
-                    <p>Groupe électrogène</p>
-                    <p>150kg</p>
-                  </div>
-                </StyledTableCell>
-                <StyledTableCell align="center">Paris</StyledTableCell>
-                <StyledTableCell align="center">Bordeau</StyledTableCell>
-                <StyledTableCell align="center">16-07-2023</StyledTableCell>
-                <StyledTableCell align="center">
-                  Trafique Régional
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div className="images">
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                    <Img image={"user.jpeg"} />
-                  </div>
-                </StyledTableCell>
-              </StyledTableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Tables
+          tableHeader={[
+            {
+              key: "first",
+              label: "Colis à Expédier",
+            },
+            {
+              key: "second",
+              label: "Lieu Départ",
+            },
+            {
+              key: "third",
+              label: "Destination",
+            },
+            {
+              key: "fourth",
+              label: "Date",
+            },
+            {
+              key: "fifth",
+              label: "Type de trafique",
+            },
+            {
+              key: "sixth",
+              label: "Image",
+            },
+          ]}
+          tableData={candidateData}
+        />
       </div>
     </div>
   );

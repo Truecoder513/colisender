@@ -38,16 +38,19 @@ const ModoAdminNavBar = ({ setShowMenu }) => {
       </div>
       <ul>
         <>
-          {modoRoutes.map((route, index) => (
-            <li key={route.path + index}>
-              <Link
-                to={route.path}
-                className={pathname === route.path ? "activeRoute" : ""}
-              >
-                {route.label}
-              </Link>
-            </li>
-          ))}
+          {modoRoutes.map(
+            (route, index) =>
+              !["annoncesDetails"].includes(route.label) && (
+                <li key={route.path + index}>
+                  <Link
+                    to={route.path}
+                    className={pathname === route.path ? "activeRoute" : ""}
+                  >
+                    {route.label}
+                  </Link>
+                </li>
+              )
+          )}
           <li>
             <span
               onClick={() => {
@@ -57,7 +60,7 @@ const ModoAdminNavBar = ({ setShowMenu }) => {
               }}
             >
               <UilPower />
-              Deconnection
+              Déconnection
             </span>
           </li>
         </>

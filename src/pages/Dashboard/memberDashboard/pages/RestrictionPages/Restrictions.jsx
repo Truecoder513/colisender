@@ -1,12 +1,16 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 
+import { useContext } from "react";
 import {
   ColisButton,
   ColisButtonGrey,
   LinkButton,
 } from "../../../../../kits/kits";
+import AppContext from "../../../../../context/AppContext";
 
 export const NotFoundPage = () => {
+  const { auth } = useContext(AppContext);
   return (
     <div className="restrictionPage">
       <h1>404</h1>
@@ -15,8 +19,15 @@ export const NotFoundPage = () => {
         supprimé, soit vous avez mal saisi le lien.
       </p>
       <div>
-        <LinkButton href={"/apercu"} label={"Repartir à l’accueil"} />
-        <ColisButtonGrey href={"/annonces"} label={"Rechercher  annonce"} />
+        <LinkButton
+          href={
+            auth.isAuth && auth.authInfos.role === "users" ? "/apercu" : "/"
+          }
+          label={"Repartir à l’accueil"}
+        />
+        {auth.isAuth && auth.authInfos.role === "users" && (
+          <ColisButtonGrey href={"/annonces"} label={"Rechercher  annonce"} />
+        )}
       </div>
     </div>
   );
