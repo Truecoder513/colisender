@@ -43,7 +43,9 @@ function App() {
           <MemberDashboardLayout>
             <AppRouter />
           </MemberDashboardLayout>
-        ) : auth.isAuth && auth.authInfos.role === "modo" ? (
+        ) : auth.isAuth &&
+          (auth.authInfos.role === "modo" ||
+            auth.authInfos.role === "admin") ? (
           <ModoAdminLayout>
             <AppRouter />
           </ModoAdminLayout>

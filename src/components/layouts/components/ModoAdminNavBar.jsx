@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { modoRoutes } from "../../../routes/routes";
+import { adminRoutes, modoRoutes } from "../../../routes/routes";
 import { Img } from "../../../kits/kits";
 import {
   CloseCircled,
@@ -13,7 +13,7 @@ import AppContext from "../../../context/AppContext";
 
 const ModoAdminNavBar = ({ setShowMenu }) => {
   const navigate = useNavigate();
-  const { setAuth } = useContext(AppContext);
+  const { auth, setAuth } = useContext(AppContext);
   const { pathname } = useLocation();
   return (
     <nav className="modoAdminNav">
@@ -38,19 +38,38 @@ const ModoAdminNavBar = ({ setShowMenu }) => {
       </div>
       <ul>
         <>
-          {modoRoutes.map(
-            (route, index) =>
-              !["annoncesDetails", "membersDetails"].includes(route.label) && (
-                <li key={route.path + index}>
-                  <Link
-                    to={route.path}
-                    className={pathname === route.path ? "activeRoute" : ""}
-                  >
-                    {route.label}
-                  </Link>
-                </li>
+          {auth.authInfos.role === "modo"
+            ? modoRoutes.map(
+                (route, index) =>
+                  !["annoncesDetails", "membersDetails"].includes(
+                    route.label
+                  ) && (
+                    <li key={route.path + index}>
+                      <Link
+                        to={route.path}
+                        className={pathname === route.path ? "activeRoute" : ""}
+                      >
+                        {route.label}
+                      </Link>
+                    </li>
+                  )
               )
-          )}
+            : auth.authInfos.role === "admin" &&
+              adminRoutes.map(
+                (route, index) =>
+                  !["annoncesDetails", "membersDetails"].includes(
+                    route.label
+                  ) && (
+                    <li key={route.path + index}>
+                      <Link
+                        to={route.path}
+                        className={pathname === route.path ? "activeRoute" : ""}
+                      >
+                        {route.label}
+                      </Link>
+                    </li>
+                  )
+              )}
           <li>
             <span
               onClick={() => {

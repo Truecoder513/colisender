@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router";
-import { authedRoutes, modoRoutes, notAuthRoutes } from "./routes";
+import { adminRoutes, authedRoutes, modoRoutes, notAuthRoutes } from "./routes";
 import AppContext from "../context/AppContext";
 import { NotFoundPage } from "../pages/Dashboard/memberDashboard/pages/RestrictionPages/Restrictions";
 
@@ -24,6 +24,17 @@ const AppRouter = () => {
         ) : auth.isAuth && auth.authInfos.role === "modo" ? (
           <>
             {modoRoutes.map((route) => (
+              <Route
+                path={route.path}
+                element={route.element}
+                key={"page" + route.label}
+              />
+            ))}
+            <Route path="*" element={<NotFoundPage />} />
+          </>
+        ) : auth.isAuth && auth.authInfos.role === "admin" ? (
+          <>
+            {adminRoutes.map((route) => (
               <Route
                 path={route.path}
                 element={route.element}

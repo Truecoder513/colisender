@@ -156,3 +156,53 @@ export const modoRoutes = [
     element: <AnnoncesOverviewDetails />,
   },
 ];
+
+export const adminRoutes = [
+  {
+    path: "/",
+    label: (
+      <>
+        <DashboardIcon /> Dashboard
+      </>
+    ),
+    element: <Home />,
+  },
+  {
+    path: "/annoncemments",
+    label: (
+      <>
+        <AnnonceIcon /> Annonce
+      </>
+    ),
+    element: <AnnoncesOverwiew />,
+  },
+  {
+    path: "/members",
+    label: (
+      <>
+        <MemberIcon /> Membres
+      </>
+    ),
+    element: <MembersList />,
+  },
+
+  {
+    path: "/conseiller",
+    label: (
+      <>
+        <MemberIcon /> Conseillers
+      </>
+    ),
+    element: "h",
+  },
+  {
+    path: "/membersDetails",
+    label: "membersDetails",
+    element: <MembersDetails />,
+  },
+  {
+    path: "/annoncesDetails/:type",
+    label: "annoncesDetails",
+    element: <AnnoncesOverviewDetails />,
+  },
+];
