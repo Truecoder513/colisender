@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import WeightAnnonce from "./weightAnnonce";
 import ColisAnnonce from "./ColisAnnonce";
+import WeightAnnonce from "./WeightAnnonce";
 
 const NewAnnonce = () => {
   const [annonceData, setAD] = useState({
