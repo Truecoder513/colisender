@@ -40,7 +40,7 @@ const ModoAdminNavBar = ({ setShowMenu }) => {
         <>
           {modoRoutes.map(
             (route, index) =>
-              !["annoncesDetails"].includes(route.label) && (
+              !["annoncesDetails", "membersDetails"].includes(route.label) && (
                 <li key={route.path + index}>
                   <Link
                     to={route.path}

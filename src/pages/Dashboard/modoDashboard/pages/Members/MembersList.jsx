@@ -80,6 +80,7 @@ const AllMembers = () => {
           },
         ]}
         tableData={expeditionData}
+        whichDetails="members"
       />
     </>
   );

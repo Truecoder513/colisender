@@ -78,13 +78,22 @@ const StyledTableRow = styled(TableRow)(() => ({
   bordeRadius: "4px",
 }));
 
-const Tables = ({ tableHeader, tableData, details = "expedition" }) => {
+const Tables = ({
+  tableHeader,
+  tableData,
+  details = "expedition",
+  whichDetails = "transport",
+}) => {
   const navigate = useNavigate("");
   const handleDetails = () => {
-    if (details === "expedition") {
-      navigate("/annoncesDetails/0");
-    } else {
-      navigate("/annoncesDetails/1");
+    if (whichDetails === "transport") {
+      if (details === "expedition") {
+        navigate("/annoncesDetails/0");
+      } else {
+        navigate("/annoncesDetails/1");
+      }
+    } else if (whichDetails === "members") {
+      navigate("/membersDetails");
     }
   };
   return (

@@ -11,17 +11,18 @@ import FinishedSubsriptions from "../pages/Dashboard/memberDashboard/pages/FInis
 import Parametre from "../pages/Dashboard/memberDashboard/pages/Parametre/Parametre";
 import AnnonceHistory from "../pages/Dashboard/memberDashboard/pages/annonceHistory/AnnonceHistory";
 import AnnonceMarketPlace from "../pages/Dashboard/memberDashboard/pages/annoncesMarketPlace/AnnonceMarketPlace";
-import MyProfil from "../pages/Dashboard/memberDashboard/pages/monProfil/MyProfil";
 import NoteRecommandation from "../pages/Dashboard/memberDashboard/pages/monProfil/NoteRecommandation";
 import Statisques from "../pages/Dashboard/memberDashboard/pages/statistiques/Statisques";
 import Subscriptions from "../pages/Dashboard/memberDashboard/pages/subscriptions/Subscriptions";
 import SubscriptionsTariff from "../pages/Dashboard/memberDashboard/pages/subscriptions/SubscriptionsTariff";
 import Home from "../pages/Dashboard/modoDashboard/pages/Home/Home";
+import MembersDetails from "../pages/Dashboard/modoDashboard/pages/Members/MembersDetails";
 import MembersList from "../pages/Dashboard/modoDashboard/pages/Members/MembersList";
 import AnnoncesOverwiew from "../pages/Dashboard/modoDashboard/pages/annonce/AnnoncesOverwiew";
 
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
+import UserProfil from "../pages/Dashboard/globals/UserProfil";
 
 export const notAuthRoutes = [
   {
@@ -65,7 +66,7 @@ export const authedRoutes = [
   {
     path: "/profil",
     label: "Profile",
-    element: <MyProfil />,
+    element: <UserProfil />,
   },
   {
     path: "/subscriptions",
@@ -116,6 +117,11 @@ export const modoRoutes = [
       </>
     ),
     element: <MembersList />,
+  },
+  {
+    path: "/membersDetails",
+    label: "membersDetails",
+    element: <MembersDetails />,
   },
   {
     path: "/deals",
