@@ -222,7 +222,8 @@
 
 // -------------------------------- shareContainer ----------------------------------------
 
-.shareContainer {
+.shareContainer,
+.shareContainer2 {
   border-radius: 8px;
   background: #fff;
   box-shadow: 0px 4px 20px 0px rgba(111, 110, 110, 0.25);
@@ -286,6 +287,36 @@
       display: flex;
       width: 100%;
       justify-content: center;
+    }
+  }
+}
+.shareContainer2 {
+  .top {
+    p {
+      width: 60%;
+      font-size: 16px;
+    }
+  }
+  .content {
+    .account-links {
+      flex-direction: column;
+      padding: 10px;
+      border-radius: 8px;
+      background: #f4f4f4;
+      gap: 20px;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        input {
+          width: max-content;
+        }
+      }
     }
   }
 }
@@ -670,7 +701,7 @@
     background-color: white;
     padding: 10px 10px 0px 10px;
     gap: 10px;
-    z-index: 10;
+    z-index: 1;
     flex-wrap: wrap;
     label {
       font-size: 14px;

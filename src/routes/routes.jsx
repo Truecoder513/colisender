@@ -3,7 +3,6 @@ import {
   AnnonceIcon,
   DashboardIcon,
   MemberIcon,
-  SettingsIcon,
 } from "../assets/icons/icons";
 import AnnoncesOverviewDetails from "../components/globalsComponents/AnnoncesOverviewDetails";
 import PagePreview from "../pages/Dashboard/memberDashboard/pages/Apercu/PagePreview";
@@ -23,6 +22,10 @@ import AnnoncesOverwiew from "../pages/Dashboard/modoDashboard/pages/annonce/Ann
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
 import UserProfil from "../pages/Dashboard/globals/UserProfil";
+import Deals from "../pages/Dashboard/modoDashboard/pages/deals/Deals";
+import Ads from "../pages/Dashboard/globals/Ads";
+import Conseiller from "../pages/Dashboard/modoDashboard/pages/conseiller/Conseiller";
+import ConseillerWorks from "../pages/Dashboard/modoDashboard/pages/conseiller/ConseillerWorks";
 
 export const notAuthRoutes = [
   {
@@ -130,7 +133,7 @@ export const modoRoutes = [
         <MemberIcon /> Deals
       </>
     ),
-    element: "h",
+    element: <Deals />,
   },
   {
     path: "/ads",
@@ -139,19 +142,10 @@ export const modoRoutes = [
         <AdsIcon /> Ads
       </>
     ),
-    element: "h",
+    element: <Ads />,
   },
   {
-    path: "/settings",
-    label: (
-      <>
-        <SettingsIcon /> Paramètre
-      </>
-    ),
-    element: "h",
-  },
-  {
-    path: "/annoncesDetails/:type",
+    path: "/annoncesDetails/:type/:data",
     label: "annoncesDetails",
     element: <AnnoncesOverviewDetails />,
   },
@@ -193,7 +187,21 @@ export const adminRoutes = [
         <MemberIcon /> Conseillers
       </>
     ),
-    element: "h",
+    element: <Conseiller />,
+  },
+  {
+    path: "/ads",
+    label: (
+      <>
+        <AdsIcon /> Ads
+      </>
+    ),
+    element: <Ads />,
+  },
+  {
+    path: "/conseillerWorks",
+    label: "conseillerWorks",
+    element: <ConseillerWorks />,
   },
   {
     path: "/membersDetails",
@@ -201,7 +209,7 @@ export const adminRoutes = [
     element: <MembersDetails />,
   },
   {
-    path: "/annoncesDetails/:type",
+    path: "/annoncesDetails/:type/:data",
     label: "annoncesDetails",
     element: <AnnoncesOverviewDetails />,
   },

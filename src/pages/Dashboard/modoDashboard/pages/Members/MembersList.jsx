@@ -24,7 +24,7 @@ const MembersList = () => {
 
 export default MembersList;
 
-const expeditionData = [
+const members = [
   {
     first: "125Bi0HE",
     second: "Alex",
@@ -79,8 +79,9 @@ const AllMembers = () => {
             label: "Statut",
           },
         ]}
-        tableData={expeditionData}
+        tableData={members}
         whichDetails="members"
+        hasDetails
       />
     </>
   );

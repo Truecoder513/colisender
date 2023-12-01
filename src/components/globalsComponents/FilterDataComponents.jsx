@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FormField } from "../../kits/kits";
 import { handleFormData } from "../../utils/helpers";
@@ -82,7 +83,7 @@ const fields2 = [
     placeholder: "Rechercher une date",
   },
 ];
-export const FilterDataComponents2 = () => {
+export const FilterDataComponents2 = ({ notStatus = true }) => {
   const [filterParams, setFilterParams] = useState({
     searchText: "",
     date: "",
@@ -93,11 +94,19 @@ export const FilterDataComponents2 = () => {
       <Formik>
         <Form>
           {fields2.map((field) =>
-            FormField(
-              field,
-              (e) => handleFormData(e, setFilterParams, field.name),
-              filterParams
-            )
+            notStatus
+              ? FormField(
+                  field,
+                  (e) => handleFormData(e, setFilterParams, field.name),
+                  filterParams
+                )
+              : !notStatus &&
+                field.type !== "reactSelect" &&
+                FormField(
+                  field,
+                  (e) => handleFormData(e, setFilterParams, field.name),
+                  filterParams
+                )
           )}
         </Form>
       </Formik>

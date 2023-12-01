@@ -19,10 +19,12 @@ const ModoAdminNavBar = ({ setShowMenu }) => {
     <nav className="modoAdminNav">
       <div className="content">
         <div>
-          <span className="notif">
-            <IonNotifications />
-            <span className="count">3</span>
-          </span>
+          {auth.authInfos.role === "modo" && (
+            <span className="notif">
+              <IonNotifications />
+              <span className="count">3</span>
+            </span>
+          )}
           <span className="notif">
             <EnveloppeIcon />
             <span className="count">3</span>
@@ -57,9 +59,11 @@ const ModoAdminNavBar = ({ setShowMenu }) => {
             : auth.authInfos.role === "admin" &&
               adminRoutes.map(
                 (route, index) =>
-                  !["annoncesDetails", "membersDetails"].includes(
-                    route.label
-                  ) && (
+                  ![
+                    "annoncesDetails",
+                    "membersDetails",
+                    "conseillerWorks",
+                  ].includes(route.label) && (
                     <li key={route.path + index}>
                       <Link
                         to={route.path}

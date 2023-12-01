@@ -15,6 +15,7 @@ import "./assets/styles/dashboard/usersDashboard/stats.scss";
 import "./assets/styles/dashboard/usersDashboard/myProfil&notes.scss";
 import "./assets/styles/dashboard/usersDashboard/subscribe.scss";
 import "./assets/styles/dashboard/modoDashboard/home.scss";
+import "./assets/styles/dashboard/modoDashboard/conseiller.scss";
 import AppContext from "./context/AppContext";
 import { useContext } from "react";
 import MemberDashboardLayout from "./components/layouts/MemberDashboardLayout";

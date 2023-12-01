@@ -12,21 +12,25 @@
   flex-wrap: wrap;
   div {
     display: flex;
-    gap: 10px;
+    gap: 0px;
     align-items: center;
   }
   div:nth-child(1) {
-    span {
-      background-color: white;
-      padding: 10px;
-    }
     border-radius: 4px;
     background: #e4e4e4;
     font-size: 14px;
     color: #686868;
-    padding-right: 10px;
+    span {
+      background-color: white;
+      padding: 10px;
+      border-right: 1px solid #8f8f8f;
+    }
+    label {
+      padding: 10px;
+    }
   }
   div:nth-child(2) {
+    gap: 10px;
     button:nth-child(1) {
       background-color: white;
       padding: 10px;

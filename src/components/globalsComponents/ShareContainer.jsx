@@ -50,3 +50,52 @@ const ShareContainer = ({ handleClose }) => {
 };
 
 export default ShareContainer;
+
+export const ShareContainer2 = ({ handleClose }) => {
+  return (
+    <div className="shareContainer2">
+      <div className="top">
+        <p>Booster l’annonce sur nos page sociaux</p>
+        <span onClick={(e) => handleClose(e)}>
+          <CloseCircled />
+        </span>
+      </div>
+      <div className="content">
+        <div className="account-links">
+          <div>
+            <input type="radio" name="instagram" id="instagram" />
+            <label htmlFor="instagram">
+              <InstagramAlt /> Instagram
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="Linkedin" id="Linkedin" />
+            <label htmlFor="Linkedin">
+              <LinkedinWithCircle /> Linkedin
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="Twitter" id="Twitter" />
+            <label htmlFor="Twitter">
+              <IonLogoTwitter /> Twitter
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="TikTok" id="TikTok" />
+            <label htmlFor="TikTok">
+              <BaselineTiktok /> TikTok
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="Facebook" id="Facebook" />
+            <label htmlFor="Facebook">
+              <MdiFacebook /> Facebook
+            </label>
+          </div>
+        </div>
+
+        <button>Valider</button>
+      </div>
+    </div>
+  );
+};

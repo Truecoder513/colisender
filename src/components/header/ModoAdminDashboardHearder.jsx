@@ -1,31 +1,25 @@
 /* eslint-disable react/prop-types */
-import { useLocation } from "react-router";
+import { useContext } from "react";
 import {
   EnveloppeIcon,
   IonNotifications,
   MenuBurguer,
 } from "../../assets/icons/icons";
 import { Img } from "../../kits/kits";
-
-const routesName = {
-  "/": "Dashboard",
-  "/annoncemments": "Annonces",
-  "/members": "Membres",
-  "/deals": "Deals",
-  "/ads": "Ads",
-  "/settings": "Paramètre",
-};
+import AppContext from "../../context/AppContext";
 
 const ModoAdminDashboardHearder = ({ setShowMenu }) => {
-  const { pathname } = useLocation();
+  const { auth } = useContext(AppContext);
   return (
     <div className="adminModoHeader">
-      <span className="pageName">{routesName[pathname]}</span>
+      <Img image={"logo.png"} />
       <div className="right">
-        <span className="notif">
-          <IonNotifications />
-          <span className="count">3</span>
-        </span>
+        {auth.authInfos.role === "modo" && (
+          <span className="notif">
+            <IonNotifications />
+            <span className="count">3</span>
+          </span>
+        )}
         <span className="notif">
           <EnveloppeIcon />
           <span className="count">3</span>

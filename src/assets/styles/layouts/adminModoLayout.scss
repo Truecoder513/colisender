@@ -1,13 +1,11 @@
 .adminModoLayout {
   display: flex;
-  min-height: calc(100vh - 98px);
+  height: calc(100vh - 98px);
   position: sticky;
   z-index: 1;
+  top: 98px;
   > .left {
     width: 20%;
-    position: sticky;
-    top: 98px;
-    height: calc(100vh - 98px);
     .modoAdminNav {
       padding: 40px 20px;
       background: #07233e;
@@ -89,9 +87,65 @@
     overflow: auto;
     background: #f4f5f9;
   }
+  .separate {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    gap: 20px;
+    padding: 20px 30px;
+    width: 80%;
+    overflow: auto;
+    background: #f4f5f9;
+    .modoListBar {
+      background: #fff;
+      position: sticky;
+      top: 0px;
+      height: 80vh;
+      padding: 20px;
+      overflow: auto;
+      margin-top: 25px;
+      width: max-content;
+      .modoBubble {
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        cursor: pointer;
+        .count {
+          position: absolute;
+          top: -5px;
+          left: -10px;
+          color: #fff;
+          font-size: 12px;
+          padding: 10px;
+          border-radius: 50%;
+          height: 18px;
+          width: 18px;
+          border: 2px solid white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #224697;
+        }
+        .active {
+          position: absolute;
+          bottom: 2px;
+          right: 0px;
+          border-radius: 50%;
+          height: 12px;
+          width: 12px;
+          border: 2px solid white;
+          background-color: #0c9;
+        }
+        img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
 }
 .stopSticky {
-  z-index: 250;
+  z-index: 350;
 }
 
 @media screen and (max-width: 990px) {
@@ -105,7 +159,7 @@
       top: 0;
       left: -200%;
       transition: 0.3s left;
-      z-index: 2;
+      z-index: 15;
       .showMenu {
         left: 0;
         transition: 0.3s left;
@@ -131,6 +185,20 @@
     }
     > .right {
       width: 100%;
+    }
+    .separate {
+      display: block;
+      .modoListBar {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        height: max-content;
+        margin-bottom: 20px;
+        z-index: 30;
+        .modoBubble {
+          margin: 0;
+        }
+      }
     }
   }
 }

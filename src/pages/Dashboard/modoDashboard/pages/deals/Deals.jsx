@@ -1,25 +1,23 @@
 /* eslint-disable react/jsx-key */
-import { PdfIcon, PhDotOutlineFill } from "../../../../../assets/icons/icons";
+import TabsContainer from "../../../../../components/globalsComponents/TabsContainer";
+import { PdfIcon } from "../../../../../assets/icons/icons";
 import { FilterDataComponents2 } from "../../../../../components/globalsComponents/FilterDataComponents";
 import Tables from "../../../../../components/globalsComponents/Tables";
-import TabsContainer from "../../../../../components/globalsComponents/TabsContainer";
 import { Img } from "../../../../../kits/kits";
 
-const AnnoncesOverwiew = () => {
+const Deals = () => {
   return (
-    <div>
-      <TabsContainer
-        headers={["Expédition de colis", "Porteur de colis"]}
-        topStyle={{
-          top: "0",
-        }}
-        contents={[<Expedition />, <Porteur />]}
-      />
-    </div>
+    <TabsContainer
+      headers={["Expédition de colis", "Porteur de colis"]}
+      topStyle={{
+        top: "0",
+      }}
+      contents={[<Expedition />, <Porteur />]}
+    />
   );
 };
 
-export default AnnoncesOverwiew;
+export default Deals;
 
 const expeditionData = [
   {
@@ -50,11 +48,6 @@ const expeditionData = [
       </div>
     ),
     sixth: "video.mp4",
-    seventh: (
-      <span className="treat">
-        <PhDotOutlineFill /> Traiter
-      </span>
-    ),
   },
   {
     first: (
@@ -84,11 +77,6 @@ const expeditionData = [
       </div>
     ),
     sixth: "video.mp4",
-    seventh: (
-      <span className="expired">
-        <PhDotOutlineFill /> Refuser
-      </span>
-    ),
   },
   {
     first: (
@@ -118,18 +106,13 @@ const expeditionData = [
       </div>
     ),
     sixth: "video.mp4",
-    seventh: (
-      <span className="validate">
-        <PhDotOutlineFill /> Valider
-      </span>
-    ),
   },
 ];
 
 const Expedition = () => {
   return (
     <>
-      <FilterDataComponents2 />
+      <FilterDataComponents2 notStatus={false} />
       <Tables
         tableHeader={[
           {
@@ -156,12 +139,9 @@ const Expedition = () => {
             key: "sixth",
             label: "Video",
           },
-          {
-            key: "seventh",
-            label: "Statut",
-          },
         ]}
         tableData={expeditionData}
+        deals
         hasDetails
       />
     </>
@@ -185,11 +165,6 @@ const porteurData = [
     fourth: "Trafique régional",
     fifth: "$200",
     sixth: <PdfIcon />,
-    seventh: (
-      <span className="treat">
-        <PhDotOutlineFill /> Traiter
-      </span>
-    ),
   },
   {
     first: (
@@ -207,11 +182,6 @@ const porteurData = [
     fourth: "Trafique régional",
     fifth: "$200",
     sixth: <PdfIcon />,
-    seventh: (
-      <span className="expired">
-        <PhDotOutlineFill /> Refuser
-      </span>
-    ),
   },
   {
     first: (
@@ -229,17 +199,12 @@ const porteurData = [
     fourth: "Trafique régional",
     fifth: "$200",
     sixth: <PdfIcon />,
-    seventh: (
-      <span className="validate">
-        <PhDotOutlineFill /> Valider
-      </span>
-    ),
   },
 ];
 const Porteur = () => {
   return (
     <>
-      <FilterDataComponents2 />
+      <FilterDataComponents2 notStatus={false} />
       <Tables
         tableHeader={[
           {
@@ -266,13 +231,10 @@ const Porteur = () => {
             key: "sixth",
             label: "Fichier",
           },
-          {
-            key: "seventh",
-            label: "Statut",
-          },
         ]}
         tableData={porteurData}
         details={"porteur"}
+        deals
         hasDetails
       />
     </>

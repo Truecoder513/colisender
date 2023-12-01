@@ -72,6 +72,13 @@ const StyledTableCell = styled(TableCell)(() => ({
     display: "flex",
     alignItems: "center",
   },
+  [`button`]: {
+    color: "#1890FF",
+    fontWeight: "400",
+    borderRadius: "4px",
+    border: "1px solid  #1890FF",
+    padding: "10px",
+  },
 }));
 
 const StyledTableRow = styled(TableRow)(() => ({
@@ -83,17 +90,24 @@ const Tables = ({
   tableData,
   details = "expedition",
   whichDetails = "transport",
+  deals = false,
+  hasDetails = false,
+  conseilWorks = false,
 }) => {
   const navigate = useNavigate("");
   const handleDetails = () => {
-    if (whichDetails === "transport") {
-      if (details === "expedition") {
-        navigate("/annoncesDetails/0");
-      } else {
-        navigate("/annoncesDetails/1");
+    if (hasDetails) {
+      if (whichDetails === "transport") {
+        if (details === "expedition") {
+          navigate(`/annoncesDetails/${!deals ? "onlyAnnonce" : "deals"}/0`);
+        } else {
+          navigate(`/annoncesDetails/${!deals ? "onlyAnnonce" : "deals"}/1`);
+        }
+      } else if (whichDetails === "members") {
+        navigate("/membersDetails");
       }
-    } else if (whichDetails === "members") {
-      navigate("/membersDetails");
+    } else if (conseilWorks) {
+      navigate("/conseillerWorks");
     }
   };
   return (

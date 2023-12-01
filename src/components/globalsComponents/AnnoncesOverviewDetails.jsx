@@ -42,11 +42,11 @@ const datas = [
 ];
 
 const AnnoncesOverviewDetails = ({ announce }) => {
-  const { type } = useParams();
+  const { type, data } = useParams();
 
   const { auth } = useContext(AppContext);
 
-  announce ? announce : (announce = datas[type]);
+  announce ? announce : (announce = datas[data]);
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -70,18 +70,31 @@ const AnnoncesOverviewDetails = ({ announce }) => {
   };
   return (
     <>
-      {auth.isAuth && auth.authInfos.role !== "users" && (
-        <div className="modoAction">
-          <div>
-            <span>Expédition de colis</span>
-            Annonce #45D2iUBKXlM
+      {auth.isAuth &&
+        auth.authInfos.role !== "users" &&
+        (type === "onlyAnnonce" ? (
+          <div className="modoAction">
+            <div>
+              <span>Expédition de colis</span>
+              <label> Annonce #45D2iUBKXlM</label>
+            </div>
+            <div>
+              <button>Rejeter l'annonce</button>
+              <button>Valider & publier</button>
+            </div>
           </div>
-          <div>
-            <button>Rejeter l'annonce</button>
-            <button>Valider & publier</button>
-          </div>
-        </div>
-      )}
+        ) : (
+          type === "deals" && (
+            <div className="modoAction">
+              <div>
+                <span>Membres</span>
+                <span>Membre #45D2iUBKXlM</span>
+                <span>Deal</span>
+                <label>Détail #125Bi0HE</label>
+              </div>
+            </div>
+          )
+        ))}
       <Popover
         id={id}
         open={open}
@@ -95,7 +108,7 @@ const AnnoncesOverviewDetails = ({ announce }) => {
       >
         <ShareContainer handleClose={handleClose} />
       </Popover>
-      <div className={`annoncesInfos ${type ? "modoDetails" : ""}`}>
+      <div className={`annoncesInfos ${data ? "modoDetails" : ""}`}>
         <div
           className={`annoncerStats ${
             announce.type === "kilos" ? "colisAnnonce" : ""
