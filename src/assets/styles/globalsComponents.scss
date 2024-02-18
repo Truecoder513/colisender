@@ -451,6 +451,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
   margin: 30px;
   button {
@@ -637,7 +638,11 @@
 }
 @media screen and (max-width: 570px) {
   // ------------------------------------- announce card ---------------------------------------
-
+  .step-button {
+    button {
+      padding: 12px 20px;
+    }
+  }
   .announce-card {
     .announce-item {
       .item-content {

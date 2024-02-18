@@ -23,6 +23,14 @@ const FinishedSubsriptions = () => {
       : "";
   };
 
+  const handleBack = () => {
+    if (!accountData.type) return navigate(-1);
+    setAccountData((prev) => ({
+      ...prev,
+      type: "",
+    }));
+  };
+
   useEffect(() => {
     auth.verified ? navigate(-1) : "";
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,14 +40,14 @@ const FinishedSubsriptions = () => {
     <div className="finishSubcription">
       <MemberDbTopBar
         left={
-          <button onClick={() => navigate(-1)}>
+          <button onClick={() => handleBack()}>
             <ArrowBackRounded /> Finaliser Mon inscription
           </button>
         }
       />
       <div className="content-padding">
         <div className="setAccountInfo">
-          {!accountData.type && (
+          {accountData.type === "" && (
             <form action="" onSubmit={(e) => handleSubmit(e)}>
               <label htmlFor="enterprise">
                 <div>

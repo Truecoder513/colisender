@@ -20,7 +20,7 @@ const ParticularSteppers = ({ getBack }) => {
         setCurrentsStep(currentStep + 1);
       } else {
         toast(
-          "Bravo!!!, votre compte est vérifié, un de nos modérateur va validé votre compte dans les 24h qui suivent"
+          "Bravo!!!, votre compte est vérifié, un de nos modérateur va valider votre compte dans les 24h qui suivent"
         );
         setAuth((prev) => ({ ...prev, verified: true }));
         navigate("/apercu");
